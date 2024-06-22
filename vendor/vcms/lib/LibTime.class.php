@@ -512,7 +512,11 @@ class LibTime{
 
 		$file = '';
 
-		if(is_file('custom/semestercover/'.$semesterString. '.jpg')){
+		if(is_file('custom/semestercover/'.$semesterString. '.webp')){
+			$file = $semesterString.'.webp';
+		} elseif(is_file('custom/semestercover/'.strtolower($semesterString). '.webp')){
+			$file = strtolower($semesterString).'.webp';
+		} elseif(is_file('custom/semestercover/'.$semesterString. '.jpg')){
 			$file = $semesterString.'.jpg';
 		} elseif(is_file('custom/semestercover/'.strtolower($semesterString). '.jpg')){
 			$file = strtolower($semesterString).'.jpg';
@@ -524,6 +528,22 @@ class LibTime{
 			$file = $semesterString.'.gif';
 		} elseif(is_file('custom/semestercover/'.strtolower($semesterString). '.gif')){
 			$file = strtolower($semesterString). '.gif';
+		}
+
+		return $file;
+	}
+
+	function determineSemesterProgramm($semesterString){
+		if(!$this->isValidSemesterString($semesterString)){
+			return;
+		}
+
+		$file = '';
+
+		if(is_file('custom/semesterprogramm/'.$semesterString. '.pdf')){
+			$file = $semesterString.'.pdf';
+		}  elseif(is_file('custom/semesterprogramm/'.strtolower($semesterString). '.pdf')){
+			$file = strtolower($semesterString).'.pdf';
 		}
 
 		return $file;
@@ -547,7 +567,19 @@ class LibTime{
 		$file = $this->determineSemesterCover($semesterString);
 
 		if($file != ''){
-			return '<img src="custom/semestercover/' .$file. '" class="img-responsive center-block" alt="Semestercover" />';
+			return '<img src="custom/semestercover/' .$file. '" class="img-responsive center-block" alt="Semestercover ' .$semesterString . '" />';
+		}
+	}
+
+	function getSemesterProgrammString($semesterString){
+		if(!$this->isValidSemesterString($semesterString)){
+			return;
+		}
+
+		$file = $this->determineSemesterProgramm($semesterString);
+
+		if($file != ''){
+			return '<a href="custom/semesterprogramm/' .$file. '" class="center-block">' . $this->getSemesterCoverString($semesterString) . '<h3>Semesterprogramm ' .$semesterString . ' als PDF</h3></a>';
 		}
 	}
 

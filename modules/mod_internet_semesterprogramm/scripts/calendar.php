@@ -25,20 +25,38 @@ echo '<h1>Semesterprogramm ' .$libTime->getSemesterString($libGlobal->semester).
 echo $libString->getErrorBoxText();
 echo $libString->getNotificationBoxText();
 
+$semesterProgrammString = $libTime->getSemesterProgrammString($libGlobal->semester);
+$semesterProgrammAvailable = $semesterProgrammString != '';
+
+if($semesterProgrammAvailable){
+	echo '<div class="row">';
+	echo '<div class="panel panel-default reveal">';
+	echo '<div class="panel-body">';
+	echo '<div class="thumbnail">';
+
+	echo '<div class="semestercover-box center-block">';
+	echo $semesterProgrammString;
+	echo '</div>';
+
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+}
+
 
 echo '<div class="row">';
 echo '<div class="col-xs-12 col-sm-6">';
 
-$stmt = $libDb->prepare("SELECT DATE_FORMAT(datum,'%Y-%m-01') AS datum FROM base_veranstaltung GROUP BY datum ORDER BY datum DESC");
+$stmt = $libDb->prepare('SELECT * FROM base_semester ORDER BY SUBSTRING(semester,3) DESC');
 $stmt->execute();
-
 $daten = array();
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-	$daten[] = $row['datum'];
+	$daten[] = $row['semester'];
 }
 
-echo $libTime->getSemesterMenu($libTime->getSemestersFromDates($daten), $libGlobal->semester);
+echo $libTime->getSemesterMenu($daten, $libGlobal->semester);
 
 echo '</div>';
 

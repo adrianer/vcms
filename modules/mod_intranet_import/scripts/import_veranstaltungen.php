@@ -80,9 +80,9 @@ if($libAuth->isLoggedin()){
 				$ort = $getData[6];
 				$fb_eventid = $getData[7];
 				$intern = $getData[8] ?? $libGenericStorage->loadValue('base_core', 'event_preselect_intern');
-				if ($anschreiben_zusenden != '0' && $anschreiben_zusenden != '1')
+				if ($intern != '0' && $intern != '1')
 				{
-					$anschreiben_zusenden = $libGenericStorage->loadValue('base_core', 'event_preselect_intern');
+					$intern = $libGenericStorage->loadValue('base_core', 'event_preselect_intern');
 				}
 
 				$valueArray['datum'] = $libTime->assureMysqlDateTime($datum);
@@ -121,13 +121,13 @@ if($libAuth->isLoggedin()){
 				}
 				else
 				{
-					echo "" . $vorname . " " . $name . ": adding...";
-					echo "<script>console.log('{$vorname} {$name}: adding...');</script>";
+					echo "" . $datum . " " . $titel . ": adding...";
+					echo "<script>console.log('{$datum} {$titel}: adding...');</script>";
 
 					$mgarray = $libDb->insertRow($felder, $valueArray, 'base_veranstaltung', array('id' => ''));
 
-					echo "" . $vorname . " " . $name . ": added";
-					echo "<script>console.log('{$vorname} {$name}: added');</script>";
+					echo "" . $vorname . " " . $titel . ": added";
+					echo "<script>$datum.log('{$datum} {$titel}: added');</script>";
 				}
 			}
 
