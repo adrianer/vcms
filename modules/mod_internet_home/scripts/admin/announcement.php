@@ -38,7 +38,7 @@ $felder = array('startdatum', 'verfallsdatum', 'text');
 //new event
 if($aktion == 'blank'){
 	$array['startdatum'] = date('Y-m-d H:i:s');
-	$array['verfallsdatum'] = '0000-00-00 00:00:00';
+	$array['verfallsdatum'] = '1970-01-01 00:00:00';
 	$array['text'] = '';
 }
 //blank data to be saved

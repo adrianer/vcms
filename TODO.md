@@ -1,3 +1,13 @@
+Update default values for datetime columns
+------------------------------------------
+MySQL 8.0.16 broke date(times) because of https://bugs.mysql.com/bug.php?id=93513 .
+This results in dates below "1000-01-01" being treated as invalid - so especially
+"0000-00-00 00:00:00" is now invalid.
+The values have already been updated for new installations - but existing columns
+still have "0000-00-00 00:00:00" as the default value. To update them, the update.phps
+need to be updated.
+
+
 Package-Upgrades
 ----------------
 

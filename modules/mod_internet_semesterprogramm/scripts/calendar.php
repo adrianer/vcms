@@ -102,7 +102,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 		$event->isAllDay(true);
 	}
 
-	if($row['datum_ende'] != '' && $row['datum_ende'] != '0000-00-00 00:00:00'){
+	if($row['datum_ende'] != '' && $row['datum_ende'] != '1970-01-01 00:00:00'){
 		$event->setEndDateTime($row['datum_ende']);
 	}
 

@@ -68,7 +68,7 @@ if($libAuth->isLoggedin()){
 		$valueArray['datum'] = $libTime->assureMysqlDateTime($valueArray['datum']);
 		$valueArray['datum_ende'] = $libTime->assureMysqlDateTime($valueArray['datum_ende']);
 
-		if($valueArray['datum_ende'] != '0000-00-00 00:00:00' &&
+		if($valueArray['datum_ende'] != '1970-01-01 00:00:00' &&
 				$valueArray['datum_ende'] != '' &&
 				$valueArray['datum_ende'] < $valueArray['datum']){
 			$valueArray['datum_ende'] = '';
@@ -86,7 +86,7 @@ if($libAuth->isLoggedin()){
 		$valueArray['datum'] = $libTime->assureMysqlDateTime($valueArray['datum']);
 		$valueArray['datum_ende'] = $libTime->assureMysqlDateTime($valueArray['datum_ende']);
 
-		if($valueArray['datum_ende'] != '0000-00-00 00:00:00' &&
+		if($valueArray['datum_ende'] != '1970-01-01 00:00:00' &&
 				$valueArray['datum_ende'] != '' &&
 				$valueArray['datum_ende'] < $valueArray['datum']){
 			$valueArray['datum_ende'] = '';
