@@ -29,10 +29,12 @@ class LibPerson{
 		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 		$stmt->execute();
 		$mitgliedarray = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($mitgliedarray) {
+			$mitgliedstring = $this->formatNameString($mitgliedarray['anrede'], $mitgliedarray['titel'], $mitgliedarray['rang'], $mitgliedarray['vorname'], $mitgliedarray['praefix'], $mitgliedarray['name'], $mitgliedarray['suffix'], $mode);
+			return $mitgliedstring;
+		}
+		return '';
 
-		$mitgliedstring = $this->formatNameString($mitgliedarray['anrede'], $mitgliedarray['titel'], $mitgliedarray['rang'], $mitgliedarray['vorname'], $mitgliedarray['praefix'], $mitgliedarray['name'], $mitgliedarray['suffix'], $mode);
-
-		return $mitgliedstring;
 	}
 
 	function formatNameString($anrede, $titel, $rang, $vorname, $praefix, $name, $suffix, $mode = 0){
