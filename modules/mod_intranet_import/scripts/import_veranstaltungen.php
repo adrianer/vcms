@@ -126,8 +126,8 @@ if($libAuth->isLoggedin()){
 
 					$mgarray = $libDb->insertRow($felder, $valueArray, 'base_veranstaltung', array('id' => ''));
 
-					echo "" . $vorname . " " . $titel . ": added";
-					echo "<script>$datum.log('{$datum} {$titel}: added');</script>";
+					echo "" . $datum . " " . $titel . ": added";
+					echo "<script>console.log('{$datum} {$titel}: added');</script>";
 				}
 			}
 
