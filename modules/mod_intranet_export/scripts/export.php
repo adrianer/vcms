@@ -48,18 +48,14 @@ $semester101zurueck = $libTime->getPreviousSemesterNameOfSemester($semester100zu
 				<th colspan="2">Vollständige Adressdaten</th>
 			</tr>
 
-			<?php if(in_array('quaestor', $libAuth->getAemter()) || in_array('ahv_quaestor', $libAuth->getAemter()) || in_array('scriptor', $libAuth->getAemter()) || in_array('ahv_scriptor', $libAuth->getAemter()) || in_array('internetwart', $libAuth->getAemter()) || in_array('datenpflegewart', $libAuth->getAemter())): ?>
-				<tr>
-					<td>Vollständiger Export aller aktuellen Mitglieder:</td>
-					<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=csv">CSV</a>, <a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=html">HTML</a>)</td>
-				</tr>
-			<?php endif ?>
-			<?php if(in_array('quaestor', $libAuth->getAemter()) || in_array('ahv_quaestor', $libAuth->getAemter()) || in_array('scriptor', $libAuth->getAemter()) || in_array('ahv_scriptor', $libAuth->getAemter()) || in_array('internetwart', $libAuth->getAemter()) || in_array('datenpflegewart', $libAuth->getAemter())): ?>
-				<tr>
-					<td>Mitglieder-Verzeichnis aller aktuellen Mitglieder:</td>
-					<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis">PDF</a>)</td>
-				</tr>
-			<?php endif ?>
+			<tr>
+				<td>Vollständiger Export aller aktuellen Mitglieder:</td>
+				<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=csv">CSV</a>, <a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=html">HTML</a>)</td>
+			</tr>
+			<tr>
+				<td>Mitglieder-Verzeichnis aller aktuellen Mitglieder:</td>
+				<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis">PDF</a>)</td>
+			</tr>
 
 			<tr>
 				<th colspan="2">Adressdaten</th>
