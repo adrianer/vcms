@@ -90,7 +90,7 @@ if($libAuth->isLoggedin()){
 			'suppress' => 'on'
 		];*/
 
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Phlister</p>');
+		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Philister</p>');
 		$ahah_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'P' ORDER BY name, vorname";
 		$ahah_stmt = $libDb->prepare($ahah_sql);
 		$ahah_stmt->execute();

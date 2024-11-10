@@ -101,7 +101,7 @@ class LibForm{
 		$this->printRequiredString($required);
 		$this->printAcceptString($accepts);
 
-		echo ' style="display:none">';
+		echo '>';
 		echo '</label>';
 		echo '</div>';
 		echo '</div>';

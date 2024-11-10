@@ -212,6 +212,42 @@ class LibCronjobs{
 			$libGenericStorage->saveValue('base_core', 'smtp_port', 587);
 		}
 
+		if(!$libGenericStorage->attributeExists('base_core', 'smtp_use_auto_tls')){
+			$libGenericStorage->saveValue('base_core', 'smtp_use_auto_tls', 1);
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'smtp_use_starttls')){
+			$libGenericStorage->saveValue('base_core', 'smtp_use_starttls', 1);
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'use_rundbrief_smtp')){
+			$libGenericStorage->saveValue('base_core', 'use_rundbrief_smtp', 0);
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_host')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_host', '');
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_username')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_username', '');
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_password')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_password', '');
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_port')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_port', 587);
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_use_auto_tls')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_use_auto_tls', 1);
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'rundbrief_smtp_use_starttls')){
+			$libGenericStorage->saveValue('base_core', 'rundbrief_smtp_use_starttls', 1);
+		}
+
 		if(!$libGenericStorage->attributeExists('base_core', 'facebook_appid')){
 			$libGenericStorage->saveValue('base_core', 'facebook_appid', '');
 		}
