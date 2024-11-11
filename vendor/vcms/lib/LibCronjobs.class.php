@@ -256,6 +256,14 @@ class LibCronjobs{
 			$libGenericStorage->saveValue('base_core', 'facebook_secret_key', '');
 		}
 
+		if(!$libGenericStorage->attributeExists('base_core', 'hcaptcha_site_key')){
+			$libGenericStorage->saveValue('base_core', 'hcaptcha_site_key', '');
+		}
+
+		if(!$libGenericStorage->attributeExists('base_core', 'hcaptcha_secret_key')){
+			$libGenericStorage->saveValue('base_core', 'hcaptcha_secret_key', '');
+		}
+
 		if(!$libGenericStorage->attributeExists('base_core', 'image_lib')){
 			$libGenericStorage->saveValue('base_core', 'image_lib', '1');
 		}

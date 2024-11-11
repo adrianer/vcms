@@ -412,4 +412,50 @@ class LibForm{
 		echo '</select></div>';
 		echo '</div>';
 	}
+
+	function wasCaptchaSolved($hcaptcha_reponse){
+		global $libGenericStorage;
+		$hcaptcha_secret_key = $libGenericStorage->loadValue('base_core', 'hcaptcha_secret_key');
+		if(empty($hcaptcha_secret_key)) {
+			return true;  // No secret-key set, no way to verify. Assume captcha is not wanted
+		}
+		if(!isset($hcaptcha_reponse) && empty($hcaptcha_reponse)) {
+			return false;
+		}
+
+		// $data = array(
+		// 			'secret' => $hcaptcha_secret_key,
+		// 			'response' => $hcaptcha_reponse
+		// 		);
+		// $verify = curl_init();
+		// curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
+		// curl_setopt($verify, CURLOPT_POST, true);
+		// curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
+		// curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+		// $response = curl_exec($verify);
+		// curl_close($verify);
+
+		$verify_url = 'https://hcaptcha.com/siteverify?secret='.$hcaptcha_secret_key.'&response='.$hcaptcha_reponse;
+		$response = file_get_contents($verify_url);
+		//var_dump($response);
+		$responseData = json_decode($response);
+		if($responseData->success) {
+			return true;
+		} 
+		else {
+			return false;
+		}
+	}
+
+	function printCaptcha(){
+		global $libGenericStorage;
+		$hcaptcha_site_key = $libGenericStorage->loadValue('base_core', 'hcaptcha_site_key');
+		if($hcaptcha_site_key === '') {
+			return false;
+		}
+
+		echo '<script src="https://www.hCaptcha.com/1/api.js?hl=de" async defer></script>';
+		echo '<script src="vendor/vcms/styles/hCaptcha.js"></script>';
+		echo '<div class="h-captcha col-sm-offset-' .$this->colLabel. ' col-sm-' .$this->colInput. '" data-sitekey="'.$hcaptcha_site_key.'"></div>';
+	}
 }

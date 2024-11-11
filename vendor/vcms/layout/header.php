@@ -8,6 +8,7 @@ echo '    <meta name="viewport" content="width=device-width,initial-scale=1,shri
 echo '    <title>' .$libGlobal->getPageTitle(). '</title>' . PHP_EOL;
 echo '    <meta name="description" content="' .$libConfig->seiteBeschreibung. '" />' . PHP_EOL;
 echo '    <meta name="keywords" content="' .$libConfig->seiteKeywords. '" />' . PHP_EOL;
+echo '    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' https://hcaptcha.com, https://*.hcaptcha.com; frame-src \'self\' https://hcaptcha.com, https://*.hcaptcha.com; style-src \'self\' https://hcaptcha.com, https://*.hcaptcha.com; connect-src \'self\' https://hcaptcha.com, https://*.hcaptcha.com;  " />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/components/font-awesome/css/font-awesome.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/fonts/libre-franklin/css/libre-franklin.css" />' . PHP_EOL;
@@ -27,6 +28,8 @@ echo '    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 echo '    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/vcms/styles/gallery/modal.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/vcms/styles/screen.js"></script>' . PHP_EOL;
+
+
 
 if(is_array($libGlobal->module->getHeaderStrings())){
 	foreach($libGlobal->module->getHeaderStrings() as $headerString){
