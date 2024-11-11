@@ -27,7 +27,16 @@ Add back previously removed features
 * * Use the following attributes from the old implementation, as they still do exist on many installations: show_map, map_latitude, map_longitude
 * * Implementation hint: this is the commit that removed Google Maps: https://github.com/uwol/vcms/commit/3e27778518910cdd7b37ec2329240a0d3bfb60a1
 
-* Add back a Captcha-like protection - this time GDPR conforming
-* * Use for the registration- and contact-forms
-* * Possible self-hosted solution: https://mosparo.io/
-* * Possible cloud-hosted solution: https://www.hcaptcha.com/
+
+Add new features
+----------------
+* Close open photos with ESC
+* Navigate between photos with the keyboard arrows
+
+
+Fix Bugs
+--------
+* Browser-Back-Button breaking the page on many occasions (e.g. photo-gallery)
+* Browser-Refresh-Button creating new login-sessions sometimes
+* "Daten -> Personen" view not usable on mobile-vertical-displays (too narrow and not even scrollable horizontally)
+* Login Session very short - was longer before
