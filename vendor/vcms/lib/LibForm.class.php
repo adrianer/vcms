@@ -416,10 +416,10 @@ class LibForm{
 	function wasCaptchaSolved($hcaptcha_reponse){
 		global $libGenericStorage;
 		$hcaptcha_secret_key = $libGenericStorage->loadValue('base_core', 'hcaptcha_secret_key');
-		if(empty($hcaptcha_secret_key)) {
+		if(!isset($hcaptcha_secret_key) || empty($hcaptcha_secret_key)) {
 			return true;  // No secret-key set, no way to verify. Assume captcha is not wanted
 		}
-		if(!isset($hcaptcha_reponse) && empty($hcaptcha_reponse)) {
+		if(!isset($hcaptcha_reponse) || empty($hcaptcha_reponse)) {
 			return false;
 		}
 
@@ -450,7 +450,7 @@ class LibForm{
 	function printCaptcha(){
 		global $libGenericStorage;
 		$hcaptcha_site_key = $libGenericStorage->loadValue('base_core', 'hcaptcha_site_key');
-		if($hcaptcha_site_key === '') {
+		if(!isset($hcaptcha_site_key) || empty($hcaptcha_site_key)) {
 			return false;
 		}
 
