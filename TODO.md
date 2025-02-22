@@ -32,6 +32,13 @@ Add new features
 ----------------
 * Close open photos with ESC
 * Navigate between photos with the keyboard arrows
+* On the registration page let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
+* * The default should be "Philister"
+* Allow registration for a "mailinglist"-only (without any user-login-possibility)
+* * The purpose is to allow interested persons to be kept in the email-loop
+* Automate the user- and malilinglist-registrations more
+* * Instead of the now copy&pasting data from emails, already create the user in the DB, but in a status "inactive-confirmation-needed"
+* * For mailinglists, optionally allow complete automation - but only, if the email address has been automatically confirmed
 
 
 Fix Bugs
