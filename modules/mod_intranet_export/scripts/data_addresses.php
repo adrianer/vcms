@@ -65,8 +65,8 @@ if($libAuth->isLoggedin()){
 	} elseif(isset($_GET['datenart']) && $_GET['datenart'] == 'adressverzeichnis'){
 		global $libFilesystem;
 		$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A6', 'default_font_size' => 9, 'default_font' => 'dejavusans']);
-		$mpdf->SetTitle('Mitglieder-Verzeichnis '.date("Y-m-d")); // :TODO: Verbindungsnamen hinzufuegen
-		$mpdf->SetAuthor('Verbindung'); // :TODO: Verbindungsnamen hinzufuegen
+		$mpdf->SetTitle($libConfig->verbindungName.' - Mitgliederverzeichnis - '.date("Y-m-d"));
+		$mpdf->SetAuthor($libConfig->verbindungName);
 		$mpdf->defaultfooterline = 0;
 		$mpdf->defaultfooterfontstyle = 'normal';
 		$mpdf->mirrorMargins = 1;
@@ -75,12 +75,37 @@ if($libAuth->isLoggedin()){
 		$mpdf->keep_table_proportions = true;
 		//$mpdf->shrink_tables_to_fit=1;
 		$mpdf->WriteHTML('span { font-size:9pt; line-height: 1.2; }',\Mpdf\HTMLParserMode::HEADER_CSS);
-		$mpdf->WriteHTML('<div><img width="100%" src="'.$libFilesystem->getAbsolutePath('custom/styles/adressverzeichnis_cover.jpg').'"></div>');
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center"><b>Mitglieder-Verzeichnis</b></p>');
+		$mpdf->WriteHTML('<div><img width="100%" src="'.$libFilesystem->getAbsolutePath('custom/styles/adressverzeichnis_cover.jpg').'" /></div>');
+		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.1;" align="center"><b>Mitgliederverzeichnis</b></p>');
 		$mpdf->AddPage();
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Datenstand: '.date("Y-m-d").'</p>');
+		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Reihenfolge: </p><ul>');
+		$mpdf->WriteHTML('<li>Philister</li>');
+		$mpdf->WriteHTML('<li>Aktive</li>');
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "Y")){
+			$mpdf->WriteHTML('<li>Vereinsfreunde</li>');
+		}
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "T")){
+			$mpdf->WriteHTML('<li>Verstorbene Bundesbrüder</li>');
+		}
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "C")){
+			$mpdf->WriteHTML('<li>Couleurdamen</li>');
+		}
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "G")){
+			$mpdf->WriteHTML('<li>Gattinen</li>');
+		}
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "W")){
+			$mpdf->WriteHTML('<li>Witwen</li>');
+		}
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "V")){
+			$mpdf->WriteHTML('<li>Verstorbene Gattinen</li>');
+		}
+		$mpdf->WriteHTML('</ul>');
 		$mpdf->WriteHTML('<p></p>');
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Reihenfolge: </p><ul><li>Philister</li><li>Aktive</li><li>Verstorbene Bundesbrüder</li><li>Damen</li><li>Witwen</li></ul>');
+		$mpdf->WriteHTML('<p></p>');
+		$mpdf->WriteHTML('<p></p>');
+		$mpdf->WriteHTML('<p></p>');
+		$mpdf->WriteHTML('<p></p>');
+		$mpdf->WriteHTML('<p style="font-size:9pt; line-height: 1.4;" align="center">Datenstand: '.date("Y-m-d").'</p>');
 		$mpdf->AddPage();
 		$mpdf->setFooter('{PAGENO}');
 		/*$mpdf->PageNumSubstitutions[] = [
@@ -102,30 +127,63 @@ if($libAuth->isLoggedin()){
 		$aktive_stmt = $libDb->prepare($aktive_sql);
 		$aktive_stmt->execute();
 		add_group($aktive_stmt, $mpdf);
-		$mpdf->AddPage();
 
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Unsere Verstorbenen Bundesbrüder</p>');
-		$ahah_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme, tod_datum FROM base_person WHERE gruppe = 'T' ORDER BY name, vorname";
-		$ahah_stmt = $libDb->prepare($ahah_sql);
-		$ahah_stmt->execute();
-		add_group($ahah_stmt, $mpdf);
-		$mpdf->AddPage();
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "Y")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Vereinsfreunde</p>');
+			$vf_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'Y' ORDER BY name, vorname";
+			$vf_stmt = $libDb->prepare($vf_sql);
+			$vf_stmt->execute();
+			add_group($vf_stmt, $mpdf);
+		}
 
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Damen</p>');
-		$damen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'G' ORDER BY name, vorname";
-		$damen_stmt = $libDb->prepare($damen_sql);
-		$damen_stmt->execute();
-		add_group($damen_stmt, $mpdf);
-		$mpdf->AddPage();
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "T")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Unsere Verstorbenen Bundesbrüder</p>');
+			$ahah_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme, tod_datum FROM base_person WHERE gruppe = 'T' ORDER BY name, vorname";
+			$ahah_stmt = $libDb->prepare($ahah_sql);
+			$ahah_stmt->execute();
+			add_group($ahah_stmt, $mpdf);
+		}
 
-		$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Witwen</p>');
-		$witwen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'W' ORDER BY name, vorname";
-		$witwen_stmt = $libDb->prepare($witwen_sql);
-		$witwen_stmt->execute();
-		add_group($witwen_stmt, $mpdf);
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "C")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Couleurdamen</p>');
+			$cdamen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'C' ORDER BY name, vorname";
+			$cdamen_stmt = $libDb->prepare($cdamen_sql);
+			$cdamen_stmt->execute();
+			add_group($cdamen_stmt, $mpdf);
+		}
+
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "G")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Gattinen</p>');
+			$damen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'G' ORDER BY name, vorname";
+			$damen_stmt = $libDb->prepare($damen_sql);
+			$damen_stmt->execute();
+			add_group($damen_stmt, $mpdf);
+		}
+
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "W")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die Witwen</p>');
+			$witwen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme FROM base_person WHERE gruppe = 'W' ORDER BY name, vorname";
+			$witwen_stmt = $libDb->prepare($witwen_sql);
+			$witwen_stmt->execute();
+			add_group($witwen_stmt, $mpdf);
+		}
+
+		if(isset($_GET['gruppen']) && str_contains($_GET['gruppen'], "V")){
+			$mpdf->AddPage();
+			$mpdf->WriteHTML('<p style="font-size:12pt; line-height: 1.4;" align="center">Die verstorbenen Gattinen</p>');
+			$vdamen_sql = "SELECT base_person.id, titel, rang, vorname, name, geburtsname, zusatz1, strasse1, ort1, plz1, land1, telefon1, telefon2, mobiltelefon, email, webseite, datum_geburtstag, beruf, gruppe, status, semester_reception, semester_philistrierung, studium, linkedin, xing, heirat_partner, semester_aufnahme, tod_datum FROM base_person WHERE gruppe = 'V' ORDER BY name, vorname";
+			$vdamen_stmt = $libDb->prepare($vdamen_sql);
+			$vdamen_stmt->execute();
+			add_group($vdamen_stmt, $mpdf);
+		}
 
 		// Output a PDF file directly to the browser
-		$mpdf->Output('Mitglieder-Verzeichnis_'.date("Y-m-d").'.pdf', 'D');
+		$mpdf->Output(str_replace(' ', '_', $libConfig->verbindungName).'_Mitgliederverzeichnis_'.date("Y-m-d").'.pdf', 'D');
 	}
 }
 
@@ -188,14 +246,19 @@ function add_group($stmt, $mpdf)
 			}
 	
 			$valueArray['semester_aufnahme'] = $libString->xmlentities($row[26]);
-			if ($valueArray['gruppe'] == 'T') {
+			if ($valueArray['gruppe'] == 'T' || $valueArray['gruppe'] == 'V') {
 				$valueArray['tod_datum'] = $libString->xmlentities($row[27]);
 			}
 
 			//$mpdf->WriteHTML('<div>');
 			//$mpdf->WriteHTML('<columns column-count="2" vAlign="J" column-gap="5" />');
-			$mpdf->WriteHTML('<table cellpadding="2px" autosize="1" border="0" width="100%" style="padding-bottom: 20px;"><tr><td width="30mm">');
-			$mpdf->WriteHTML('<div style="float: left;"><img width="26mm" src="'.$valueArray['bild'].'" alt="'.$valueArray['bild'].'" title="'.$valueArray['bild'].'"></div></td>');
+			if ($valueArray['gruppe'] == 'P' ||  $valueArray['gruppe'] == 'B' ||  $valueArray['gruppe'] == 'F' ||  $valueArray['gruppe'] == 'Y') {
+				$mpdf->WriteHTML('<table cellpadding="2px" autosize="1" border="0" width="100%" style="padding-bottom: 20px;"><tr><td width="30mm">');
+				$mpdf->WriteHTML('<div style="float: left;"><img width="26mm" src="'.$valueArray['bild'].'" alt="'.$valueArray['bild'].'" title="'.$valueArray['bild'].'"></div></td>');
+			} else {
+				$mpdf->WriteHTML('<table cellpadding="2px" autosize="1" border="0" width="100%" style="padding-bottom: 15px;"><tr><td width="20mm">');
+				$mpdf->WriteHTML('<div style="float: left;"><img width="16mm" src="'.$valueArray['bild'].'" alt="'.$valueArray['bild'].'" title="'.$valueArray['bild'].'"></div></td>');
+			}
 			//$mpdf->WriteHTML('<columnbreak />');
 			$mpdf->WriteHTML('<td style="font-size:9pt; line-height: 1.3;" width="100%">');
 			$mpdf->WriteHTML('<div style="float: right;">');
@@ -234,10 +297,11 @@ function add_group($stmt, $mpdf)
 
 			# Geburtstag
 			if($valueArray['datum_geburtstag'] != '') {
-				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">* '.$valueArray['datum_geburtstag'].'</span><br />');
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf1fd;</span>&nbsp;');
+				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['datum_geburtstag'].'</span><br />');
 			}
-			if ($valueArray['gruppe'] == 'T' && $valueArray['tod_datum'] != '') {
-				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">t '.$valueArray['tod_datum'].'</span><br />');
+			if (($valueArray['gruppe'] == 'T' || $valueArray['gruppe'] == 'V') && $valueArray['tod_datum'] != '') {
+				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;"><svg height="9pt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M352 128h-96V32c0-17.67-14.33-32-32-32h-64c-17.67 0-32 14.33-32 32v96H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h96v224c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V256h96c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"/></svg>&nbsp;&nbsp;'.$valueArray['tod_datum'].'</span><br />');
 			}
 
 			# Rezeption + Philistrierung/Aufnahme
@@ -265,32 +329,62 @@ function add_group($stmt, $mpdf)
 			}
 
 			# Elektronische Kommunikation
-			if($valueArray['gruppe'] != 'T' && $valueArray['email'] != '') {
-				$mpdf->WriteHTML('<span>'.$valueArray['email'].'</span><br />');
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && $valueArray['email'] != '') {
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf003;</span>&nbsp;');
+				$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none;" href="mailto:'.$valueArray['email'].'">'.$valueArray['email'].'</a></span><br />');
 			}
-			if($valueArray['gruppe'] != 'T' && $valueArray['webseite'] != '') {
-				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['webseite'].'</span><br />');
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && $valueArray['webseite'] != '') {
+				$valueArray['webseite'] = str_replace('https://', '', $valueArray['webseite']);
+				$valueArray['webseite'] = str_replace('http://', '', $valueArray['webseite']);
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf0ac;</span>&nbsp;');
+				$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none; font-size:9pt; line-height: 1.3;" href="https://'.$valueArray['webseite'].'">'.$valueArray['webseite'].'</a></span><br />');
 			}
-			if($valueArray['gruppe'] != 'T' && $valueArray['linkedin'] != '') {
-				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['linkedin'].'</span><br />');
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && $valueArray['linkedin'] != '') {
+				$valueArray['linkedin'] = str_replace('https://www.linkedin.com/in/', '', $valueArray['linkedin']);
+				$valueArray['linkedin'] = str_replace('/', '', $valueArray['linkedin']);
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf08c;</span>&nbsp;');
+				$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none; font-size:9pt; line-height: 1.3;" href="https://www.linkedin.com/in/'.$valueArray['linkedin'].'">'.$valueArray['linkedin'].'</a></span><br />');
 			}
-			if($valueArray['gruppe'] != 'T' && $valueArray['xing'] != '') {
-				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['xing'].'</span><br />');
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && $valueArray['xing'] != '') {
+				$valueArray['xing'] = str_replace('https://www.xing.com/profile/', '', $valueArray['xing']);
+				$valueArray['xing'] = str_replace('/', '', $valueArray['xing']);
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf169;</span>&nbsp;');
+				$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none; font-size:9pt; line-height: 1.3;" href="https://www.xing.com/profile/'.$valueArray['xing'].'">'.$valueArray['xing'].'</a></span><br />');
+			}
+
+			# Mobiltelefone
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && ($valueArray['mobiltelefon'] != '' && !str_contains($valueArray['mobiltelefon'], 'stand') && !str_contains($valueArray['mobiltelefon'], 'Stand'))) {
+				$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf10b;</span>&nbsp;');
+				$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none;" href="tel:'.$valueArray['mobiltelefon'].'">'.$valueArray['mobiltelefon'].'</a>&nbsp;&nbsp;</span>');
+				$mpdf->WriteHTML('<br />');
 			}
 
 			# Telefone
-			if($valueArray['gruppe'] != 'T' && ($valueArray['mobiltelefon'] != '' || $valueArray['telefon1'] != '' || $valueArray['telefon2'] != '')) {
-				$mpdf->WriteHTML('<span>'.$valueArray['mobiltelefon'].' '.$valueArray['telefon1'].' '.$valueArray['telefon2'].'</span><br />');
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && ($valueArray['telefon1'] != '' || $valueArray['telefon2'] != '')) {
+				$onePhoneAdded = false;
+				if ($valueArray['telefon1'] != '' && !str_contains($valueArray['telefon1'], 'stand') && !str_contains($valueArray['telefon1'], 'Stand')) {
+					$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf095;</span>&nbsp;');
+					$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none;" href="tel:'.$valueArray['telefon1'].'">'.$valueArray['telefon1'].'</a>&nbsp;&nbsp;</span>');
+					$onePhoneAdded = true;
+				}
+				if ($valueArray['telefon2'] != '' && !str_contains($valueArray['telefon2'], 'stand') && !str_contains($valueArray['telefon2'], 'Stand')) {
+					$mpdf->WriteHTML('<span style="font-family: fontawesome;">&#xf095;</span>&nbsp;');
+					$mpdf->WriteHTML('<span><a style="color: #000000; text-decoration: none;" href="tel:'.$valueArray['telefon2'].'">'.$valueArray['telefon2'].'</a></span>');
+					$onePhoneAdded = true;
+				}
+				if ($onePhoneAdded) {
+					$mpdf->WriteHTML('<br />');
+				}
 			}
 
 			# Adresse
-			if($valueArray['gruppe'] != 'T' && $valueArray['zusatz1'] != '') {
+			if($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V' && $valueArray['zusatz1'] != '') {
 				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['zusatz1'].'</span><br />');
 			}
-			if ($valueArray['gruppe'] != 'T') {
+			if ($valueArray['gruppe'] != 'T' && $valueArray['gruppe'] != 'V') {
 				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['strasse1'].'</span><br />');
 				$mpdf->WriteHTML('<span style="font-size:9pt; line-height: 1.3;">'.$valueArray['plz1'].' '.$valueArray['ort1']);
-				if($valueArray['gruppe'] != 'T' && $valueArray['land1'] != '') {
+				if ($valueArray['land1'] != '') {
 					$mpdf->WriteHTML(' / '.$valueArray['land1']);
 				}
 				$mpdf->WriteHTML('</span><br />');

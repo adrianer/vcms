@@ -49,12 +49,37 @@ $semester101zurueck = $libTime->getPreviousSemesterNameOfSemester($semester100zu
 			</tr>
 
 			<tr>
-				<td>Vollständiger Export aller aktuellen Mitglieder:</td>
-				<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=csv">CSV</a>, <a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=html">HTML</a>)</td>
+				<td>Vollständiger Export aller Adressdaten:</td>
+				<td>Alle lebenden Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=csv">CSV</a>, <a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=mitglieder_export&amp;type=html">HTML</a>)</td>
 			</tr>
 			<tr>
-				<td>Mitglieder-Verzeichnis aller aktuellen Mitglieder:</td>
-				<td>Mitglieder (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis">PDF</a>)</td>
+				<td>Mitgliederverzeichnis:</td>
+				<td>Mitglieder (Philister, Aktive) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFB">PDF</a>)</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>Mitglieder (Philister, Aktive, Verstorbene BbBb) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFBT">PDF</a>)</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>Mitglieder (Philister, Aktive, Vereinsfreunde) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFBY">PDF</a>)</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>Mitglieder (Philister, Aktive, Vereinsfreunde, Verstorbene BbBb) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFBYT">PDF</a>)</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>Mitglieder (Philister, Aktive, Vereinsfreunde, Verstorbene BbBb, Couleurdamen, Gattinnen, Witwen) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFBYTCGW">PDF</a>)</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>Mitglieder (Philister, Aktive, Vereinsfreunde, Verstorbene BbBb, Couleurdamen, Gattinnen, Witwen, Verstorbene Gattinen) (<a href="api.php?iid=intranet_admin_export_daten_adressen&amp;datenart=adressverzeichnis&amp;gruppen=PFBYTCGWV">PDF</a>)</td>
 			</tr>
 
 			<tr>
