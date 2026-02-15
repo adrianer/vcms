@@ -74,7 +74,7 @@ class LibMenuRenderer{
 		$rootMenuFolderInternet = $menuInternet->getRootMenuFolder();
 
 		if($rootMenuFolderInternet->hasElements()){
-			echo '          <ul class="w-100 navbar-nav ms-auto nav-pills navbar-internet">' . PHP_EOL;
+			echo '          <ul class="w-100 navbar-nav ms-auto justify-content-end nav-pills navbar-internet">' . PHP_EOL;
 			echo $this->printNavbarLevel($rootMenuFolderInternet, 0, $aktivesPid);
 
 			if($libAuth->isLoggedin() && $libPerson->hasImageFile($libAuth->getId())){
@@ -91,7 +91,7 @@ class LibMenuRenderer{
 
 		if($rootMenuFolderIntranet->hasElements()){
 			echo '        <div id="navbar-intranet" class="w-100 collapse navbar-collapse navbar-intranet">' . PHP_EOL;
-			echo '          <ul class="w-100 navbar-nav ms-auto ms-lg-3 nav-pills navbar-intranet">' . PHP_EOL;
+			echo '          <ul class="w-100 navbar-nav ms-auto justify-content-end ms-lg-3 nav-pills navbar-intranet">' . PHP_EOL;
 			echo $this->printNavbarLevel($rootMenuFolderIntranet, 0, $aktivesPid);
 			echo $this->printNavbarLevel($rootMenuFolderAdministration, 0, $aktivesPid);
 			echo '          </ul>' . PHP_EOL;
