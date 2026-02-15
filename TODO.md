@@ -1,5 +1,8 @@
-Package-Upgrades
-----------------
+TODO
+----
+
+Packages
+--------
 
 ### Upgrade following packages:
 
@@ -17,6 +20,15 @@ Package-Upgrades
 * phpass (https://www.openwall.com/phpass/ + https://github.com/openwall/phpass/)
 * * Stright-forward upgrade to 0.5.4 breaks the login...
 * scrollreveal (https://github.com/jlmakes/scrollreveal/)
+
+
+### Remove the need of patched external packages
+
+* Find an other way to use fontawesome-webfont with MPDF instead of patching MPDF
+
+### Remove the external packages from the repository (use composer instead)
+
+* Requires finding alternatives to patching packages (e.g. MPDF)
 
 
 Add back previously removed features
