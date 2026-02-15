@@ -57,7 +57,7 @@ header .header-content .header-content-inner .btn-circle:focus {
 }
 
 header .header-content .header-content-inner .btn-circle .fa {
-	color: white;
+    color: white;
 }
 
 @media (min-width: 768px) {

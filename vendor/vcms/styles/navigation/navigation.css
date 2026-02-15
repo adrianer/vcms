@@ -13,13 +13,13 @@
 	height: 75px;
 }
 
-@media(min-width: 768px){
+@media(min-width: 992x){
 	.navbar-default.affix-top {
 		position: absolute;
 	}
 }
 
-@media(max-width: 767px){
+@media(max-width: 991px){
 	.navbar-default #logo {
 		height: 50px;
 		width: 50px;
@@ -44,13 +44,13 @@
 	color: #111;
 }
 
-@media(max-width: 767px){
+@media(max-width: 991px){
 	.navbar-default .navbar-brand {
 		padding-left: 5px;
 	}
 }
 
-@media(min-width: 768px) {
+@media(min-width: 992px) {
 	.navbar-default.affix .navbar-brand {
 		font-size: 1.1em;
 	}
@@ -88,6 +88,12 @@
 .navbar-default .navbar-nav .nav-link.active:hover,
 .navbar-default .navbar-nav .nav-link.active:focus:hover {
 	background-color: transparent;
+}
+
+.navbar-default .dropdown-item {
+    font-weight: 500;
+    color: inherit;
+    background-color: transparent;
 }
 
 .navbar-default .dropdown-menu .active > .dropdown-item,
