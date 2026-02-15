@@ -29,8 +29,8 @@ $stmt = $libDb->prepare('SELECT * FROM base_person, mod_zipfelranking_anzahl WHE
 $stmt->execute();
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 
 	echo '<div class="row">';
 	echo '<div class="col-6 col-sm-2">';

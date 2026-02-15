@@ -54,8 +54,8 @@ if(isset($_REQUEST['action'])){
 
 	echo '</a></p>';
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 
 	echo '<table class="table table-sm table-striped table-hover">';
 	echo '<thead>';

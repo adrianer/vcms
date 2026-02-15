@@ -8,7 +8,7 @@ echo '    <meta name="viewport" content="width=device-width,initial-scale=1,shri
 echo '    <title>' .$libGlobal->getPageTitle(). '</title>' . PHP_EOL;
 echo '    <meta name="description" content="' .$libConfig->seiteBeschreibung. '" />' . PHP_EOL;
 echo '    <meta name="keywords" content="' .$libConfig->seiteKeywords. '" />' . PHP_EOL;
-echo '    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; frame-src \'self\' hcaptcha.com *.hcaptcha.com facebook.com *.facebook.com; style-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; connect-src \'self\' hcaptcha.com *.hcaptcha.com;  " />' . PHP_EOL;
+echo '    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; frame-src \'self\' hcaptcha.com *.hcaptcha.com facebook.com *.facebook.com; style-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; connect-src \'self\' hcaptcha.com *.hcaptcha.com;  img-src \'self\' data:; " />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/components/font-awesome/css/font-awesome.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/fonts/libre-franklin/css/libre-franklin.css" />' . PHP_EOL;

@@ -200,8 +200,8 @@ printPersonSignature($row, $ownprofile);
 echo '</div>';
 
 echo '<div class="col-sm-9">';
-echo '<div class="panel panel-default">';
-echo '<div class="panel-body">';
+echo '<div class="card">';
+echo '<div class="card-body">';
 printPersonData($row);
 
 echo '<div class="row">';
@@ -214,8 +214,8 @@ printAssociationDetails($row);
 echo '</div>';
 echo '</div>';
 
-echo '<div class="panel panel-default">';
-echo '<div class="panel-body">';
+echo '<div class="card">';
+echo '<div class="card-body">';
 printVita($row);
 echo '</div>';
 
@@ -230,9 +230,9 @@ echo '</div>';
 if($ownprofile){
 	echo '<h2>Passwort ändern</h2>';
 
- 	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
-	echo '<form action="index.php?pid=intranet_person&amp;id=' .$id. '" method="post" class="form-horizontal">';
+ 	echo '<div class="card">';
+	echo '<div class="card-body">';
+	echo '<form action="index.php?pid=intranet_person&amp;id=' .$id. '" method="post" class="">';
 	echo '<fieldset>';
 	echo '<input type="hidden" name="formtyp" value="personpasswort" />';
 
@@ -254,9 +254,9 @@ if($ownprofile){
 
 	echo '<h2>Stammdaten ändern</h2>';
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
-	echo '<form action="index.php?pid=intranet_person" method="post" class="form-horizontal">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
+	echo '<form action="index.php?pid=intranet_person" method="post" class="">';
 	echo '<fieldset>';
 	echo '<input type="hidden" name="formtyp" value="person_data" />';
 
@@ -471,7 +471,7 @@ SELECT vopxxxx.id, vopxxxx.anrede, vopxxxx.titel, vopxxxx.rang, vopxxxx.vorname,
 function printPersonSignature($row, $ownprofile){
 	global $libPerson, $libForm;
 
-	echo '<div class="center-block person-signature-box mb-3">';
+	echo '<div class="mx-auto person-signature-box mb-3">';
 	echo '<div class="img-box">';
 
 	if($ownprofile){
@@ -490,7 +490,7 @@ function printPersonSignature($row, $ownprofile){
 
 	if($ownprofile){
 		//image upload form
-		echo '<form action="index.php?pid=intranet_person" method="post" enctype="multipart/form-data" class="form-horizontal text-center">';
+		echo '<form action="index.php?pid=intranet_person" method="post" enctype="multipart/form-data" class="text-center">';
 		echo '<input type="hidden" name="formtyp" value="fotodatenupload" />';
 		$libForm->printFileUpload('bilddatei', 'Foto (4x3) hochladen', false, false, array(), array('image/jpeg'));
 		echo '</form>';

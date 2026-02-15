@@ -30,11 +30,11 @@ $semesterProgrammAvailable = $semesterProgrammString != '';
 
 if($semesterProgrammAvailable){
 	echo '<div class="row">';
-	echo '<div class="panel panel-default reveal">';
-	echo '<div class="panel-body">';
-	echo '<div class="thumbnail">';
+	echo '<div class="card reveal">';
+	echo '<div class="card-body">';
+	echo '<div class="card">';
 
-	echo '<div class="semestercover-box center-block">';
+	echo '<div class="semestercover-box mx-auto">';
 	echo $semesterProgrammString;
 	echo '</div>';
 
@@ -61,8 +61,8 @@ echo $libTime->getSemesterMenu($daten, $libGlobal->semester);
 echo '</div>';
 
 echo '<div class="col-12 col-sm-6">';
-echo '<div class="panel panel-default">';
-echo '<div class="panel-body">';
+echo '<div class="card">';
+echo '<div class="card-body">';
 echo '<div class="btn-toolbar">';
 echo '<p> Semesterprogramm abonnieren mit: </p>';
 echo '<a href="https://calendar.google.com/calendar/r?cid=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary"><i class="fa fa-calendar" aria-hidden="true"></i> Google Calendar</a>';

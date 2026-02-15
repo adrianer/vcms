@@ -131,8 +131,8 @@ echo '</div>';
 echo '</div>';
 
 
-echo '<div class="panel panel-default">';
-echo '<div class="panel-body">';
+echo '<div class="card">';
+echo '<div class="card-body">';
 echo '<table class="table table-bordered table-sm">';
 
 //for all semesters
@@ -210,8 +210,8 @@ $agesAhAh = fetchAges('P');
 $ageClassesAhAh = calculateAgeClasses($agesAhAh, $classWidth);
 
 
-echo '<div class="panel panel-default">';
-echo '<div class="panel-body">';
+echo '<div class="card">';
+echo '<div class="card-body">';
 
 if(empty($ageClassesAhAh)){
 	echo '<p class="mb-4">Bei den alten Herren sind keine Geburtstage hinterlegt.</p>';

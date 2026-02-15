@@ -119,9 +119,9 @@ if(!empty($libAuth->getAemter())){
 	*/
 	echo '<h2>Datei hochladen</h2>';
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
-	echo '<form action="index.php?pid=intranet_directories" method="post" enctype="multipart/form-data" class="form-horizontal">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
+	echo '<form action="index.php?pid=intranet_directories" method="post" enctype="multipart/form-data" class="">';
 	echo '<fieldset>';
 	echo '<input type="hidden" name="aktion" value="upload" />';
 
@@ -183,9 +183,9 @@ if(!empty($libAuth->getAemter())){
 	*/
 	echo '<h2>Ordner anlegen</h2>';
 
-  echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
-	echo '<form action="index.php?pid=intranet_directories" method="post" class="form-horizontal">';
+  echo '<div class="card">';
+	echo '<div class="card-body">';
+	echo '<form action="index.php?pid=intranet_directories" method="post" class="">';
 	echo '<fieldset>';
 	echo '<input type="hidden" name="aktion" value="newfolder" />';
 
@@ -234,8 +234,8 @@ function listFolderContentRec(&$rootFolderObject, $firstLevel){
 			if(!$folderElement->isAmtsRootFolder() || $folderElement->hasNestedFolderElements()){
 				if($firstLevel){
 					echo '<div class="col-md-6">';
-					echo '<div class="panel panel-default">';
-					echo '<div class="panel-body">';
+					echo '<div class="card">';
+					echo '<div class="card-body">';
 				}
 
 				if($folderElement->isOpen){

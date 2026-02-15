@@ -110,8 +110,8 @@ if($libAuth->isLoggedin()){
 	echo $libString->getNotificationBoxText();
 
 	if(in_array('internetwart', $libAuth->getAemter()) || in_array('datenpflegewart', $libAuth->getAemter())){
-		echo '<div class="panel panel-default">';
-		echo '<div class="panel-body">';
+		echo '<div class="card">';
+		echo '<div class="card-body">';
 		echo '<div class="btn-toolbar">';
 		echo '<a href="index.php?pid=intranet_admin_person&amp;aktion=blank" class="btn btn-secondary">Eine neue Person anlegen</a>';
 		echo '</div>';
@@ -119,8 +119,8 @@ if($libAuth->isLoggedin()){
 		echo '</div>';
 	}
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 	echo '<form action="index.php?pid=intranet_admin_persons" method="post" class="form-inline">';
 	echo '<fieldset>';
 	echo '<div class="mb-3 row">';
@@ -166,8 +166,8 @@ if($libAuth->isLoggedin()){
 	echo '</div>';
 
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 
 	echo '<table class="table table-sm table-striped table-hover">';
 	echo '<thead>';

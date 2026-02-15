@@ -37,7 +37,7 @@ class LibMenuRenderer{
 
 		$navbarClass = $this->getNavbarClass();
 
-		echo '    <nav id="nav" class="navbar navbar-default navbar-expand-lg fixed-top navbar-light bg-light ' .$navbarClass. '" role="navigation">' . PHP_EOL;
+		echo '    <nav id="nav" class="navbar navbar-vcms navbar-expand-lg fixed-top navbar-light bg-light ' .$navbarClass. '" role="navigation">' . PHP_EOL;
 		echo '      <div class="container">' . PHP_EOL;
 		echo '      	<div class="flex-column d-flex flex-grow-1">' . PHP_EOL;
 

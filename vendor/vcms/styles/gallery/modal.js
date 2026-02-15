@@ -14,7 +14,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.gallery .thumbnail .img-frame a').click(function(e){
+	$('.gallery .card .img-frame a').click(function(e){
 		e.preventDefault();
 
 		var clickedA = this;
@@ -22,7 +22,7 @@ $(document).ready(function() {
 		var currentIndex = 0;
 
 		$('.carousel-inner').empty();
-		$('.gallery .thumbnail .img-frame a').each(function() {
+		$('.gallery .card .img-frame a').each(function() {
 			var currentA = this;
 			var itemDiv = createCarouselItem(currentA);
 

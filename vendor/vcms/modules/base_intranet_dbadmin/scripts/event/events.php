@@ -47,8 +47,8 @@ if($libAuth->isLoggedin()){
 	echo $libString->getNotificationBoxText();
 
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 	echo '<div class="btn-toolbar">';
 	echo '<a href="index.php?pid=intranet_admin_event&amp;aktion=blank" class="btn btn-secondary">Eine neue Veranstaltung anlegen</a>';
 	echo '</div>';
@@ -69,8 +69,8 @@ if($libAuth->isLoggedin()){
 	echo $libTime->getSemesterMenu($libTime->getSemestersFromDates($daten),$libGlobal->semester);
 
 
-	echo '<div class="panel panel-default">';
-	echo '<div class="panel-body">';
+	echo '<div class="card">';
+	echo '<div class="card-body">';
 
 	echo '<table class="table table-sm table-striped table-hover">';
 	echo '<thead>';
