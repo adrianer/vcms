@@ -44,7 +44,7 @@ Add new features
 ----------------
 * Navigate between photos with the keyboard arrows
 * On the registration page let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
-* * The default should be "Philister"
+  * The default should be "Philister"
 * Allow registration for a "mailinglist"-only (without any user-login-possibility)
   * The purpose is to allow interested persons to be kept in the email-loop
 * Automate the user- and malilinglist-registrations more
