@@ -8,7 +8,7 @@ echo '    <meta name="viewport" content="width=device-width,initial-scale=1,shri
 echo '    <title>' .$libGlobal->getPageTitle(). '</title>' . PHP_EOL;
 echo '    <meta name="description" content="' .$libConfig->seiteBeschreibung. '" />' . PHP_EOL;
 echo '    <meta name="keywords" content="' .$libConfig->seiteKeywords. '" />' . PHP_EOL;
-echo '    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; frame-src \'self\' hcaptcha.com *.hcaptcha.com facebook.com *.facebook.com; style-src \'self\' hcaptcha.com *.hcaptcha.com \'unsafe-inline\'; connect-src \'self\' hcaptcha.com *.hcaptcha.com;  img-src \'self\' data:; " />' . PHP_EOL;
+echo '    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; script-src \'self\' hcaptcha.com *.hcaptcha.com unpkg.com \'unsafe-inline\'; frame-src \'self\' hcaptcha.com *.hcaptcha.com facebook.com *.facebook.com; style-src \'self\' hcaptcha.com *.hcaptcha.com unpkg.com \'unsafe-inline\'; connect-src \'self\' hcaptcha.com *.hcaptcha.com;  img-src \'self\' data: unpkg.com tile.openstreetmap.org; " />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/components/font-awesome/css/font-awesome.min.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="vendor/fonts/libre-franklin/css/libre-franklin.css" />' . PHP_EOL;
@@ -23,6 +23,8 @@ echo '    <link rel="stylesheet" href="vendor/vcms/styles/person/person.css" />'
 echo '    <link rel="stylesheet" href="vendor/vcms/styles/timeline/timeline.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="custom/styles/screen.css" />' . PHP_EOL;
 echo '    <link rel="canonical" href="' .$libGlobal->getPageCanonicalUrl(). '"/>' . PHP_EOL;
+echo '    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />' . PHP_EOL;
+echo '    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>' . PHP_EOL;
 echo '    <script src="vendor/components/jquery/jquery.min.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>' . PHP_EOL;

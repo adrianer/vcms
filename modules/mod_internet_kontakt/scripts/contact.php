@@ -55,6 +55,18 @@ if(!$libGenericStorage->attributeExistsInCurrentModule('show_form')){
 	$libGenericStorage->saveValueInCurrentModule('show_form', 1);
 }
 
+if(!$libGenericStorage->attributeExistsInCurrentModule('show_map')){
+    $libGenericStorage->saveValueInCurrentModule('show_map', '1');
+}
+
+if(!$libGenericStorage->attributeExistsInCurrentModule('map_latitude')){
+    $libGenericStorage->saveValueInCurrentModule('map_latitude', '51.968609');
+}
+
+if(!$libGenericStorage->attributeExistsInCurrentModule('map_longitude')){
+    $libGenericStorage->saveValueInCurrentModule('map_longitude', '7.624257');
+}
+
 if(!$libGenericStorage->attributeExistsInCurrentModule('show_haftungshinweis')){
 	$libGenericStorage->saveValueInCurrentModule('show_haftungshinweis', 0);
 }
@@ -165,6 +177,19 @@ if($libGenericStorage->loadValueInCurrentModule('show_quaestor') && $vorstand['q
 }
 
 echo '</p>';
+
+if($libGenericStorage->loadValueInCurrentModule('show_map')){
+    $latitude = $libGenericStorage->loadValueInCurrentModule('map_latitude');
+    $longitude = $libGenericStorage->loadValueInCurrentModule('map_longitude');
+    echo '<div id="addressmap" class="img-fluid mx-start reveal" style="width:500px; height:300px;"></div>';
+    echo '<script>var map = L.map("addressmap").setView(['.$latitude.', '.$longitude.'], 15);
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { maxZoom: 19, attribution: "&copy; \<a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"}).addTo(map);
+        var marker = L.marker(['.$latitude.', '.$longitude.']).addTo(map);
+        marker.bindPopup("<b>' .$libConfig->verbindungName. '</b>").openPopup();
+        </script>';
+}
+
 echo '</section>';
 echo '</div>';
 
