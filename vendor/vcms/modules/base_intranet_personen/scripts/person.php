@@ -240,7 +240,7 @@ if($ownprofile){
 	$libForm->printTextInput('newpwd1', 'Neues Passwort', '', 'password', false, true);
 	$libForm->printTextInput('newpwd2', 'Neues Passwort (Wiederholung)', '', 'password', false, true);
 
-	echo '<div class="form-group">';
+	echo '<div class="mb-3 row">';
 	echo '<div class="col-sm-3"></div>';
 	echo '<div class="col-sm-9">' .$libAuth->getPasswordRequirements(). '</div>';
 	echo '</div>';
@@ -812,7 +812,7 @@ function printAssociationDetails($row){
 
 	if($vereineAnzahl > 0){
 		echo '<p class="mb-4">';
-		echo '<span class="badge">' .$vereineAnzahl. '</span>';
+		echo '<span class="badge text-bg-secondary">' .$vereineAnzahl. '</span>';
 		echo ' ';
 		echo 'Mitgliedschaften in weiteren Verbindungen: ' .implode(', ', $vereine);
 		echo '</p>';
@@ -830,7 +830,7 @@ function printAssociationDetails($row){
 
 		if($chargierAnzahl > 0){
 			echo '<p class="mb-4">';
-			echo '<span class="badge badge-default">' .$chargierAnzahl. '</span>';
+			echo '<span class="badge text-bg-secondary">' .$chargierAnzahl. '</span>';
 			echo ' ';
 			echo 'Chargierter bei ';
 

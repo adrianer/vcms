@@ -49,7 +49,7 @@ echo $libString->getNotificationBoxText();
 echo '<div class="panel panel-default">';
 echo '<div class="panel-body">';
 echo '<div class="btn-toolbar">';
-echo '<a href="index.php?pid=intranet_admin_announcement&amp;aktion=blank" class="btn btn-default">Eine neue Ankündigung anlegen</a>';
+echo '<a href="index.php?pid=intranet_admin_announcement&amp;aktion=blank" class="btn btn-secondary">Eine neue Ankündigung anlegen</a>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
@@ -70,7 +70,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 echo $libTime->getSemesterMenu($libTime->getSemestersFromDates($daten), $libGlobal->semester);
 
 
-echo '<table class="table table-condensed table-striped table-hover">';
+echo '<table class="table table-sm table-striped table-hover">';
 echo '<thead>';
 echo '<tr><th>Bild</th><th>Start</th><th>Text</th><th></th></tr>';
 echo '</thead>';

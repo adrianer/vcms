@@ -29,8 +29,8 @@ echo '<fieldset>';
 
 $libForm->printTextarea('text', 'Nachricht', '');
 
-echo '<div class="form-group">';
-echo '<label for="kategorie" class="col-sm-3 control-label">Kategorie</label>';
+echo '<div class="mb-3 row">';
+echo '<label for="kategorie" class="col-sm-3 col-form-label">Kategorie</label>';
 echo '<div class="col-sm-9"><select id="kategorie" name="kategorie" class="form-control">';
 
 $stmt = $libDb->prepare('SELECT * FROM mod_news_kategorie ORDER BY bezeichnung');

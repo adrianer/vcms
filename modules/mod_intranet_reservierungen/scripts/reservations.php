@@ -57,7 +57,7 @@ echo $libString->getNotificationBoxText();
 echo '<div class="panel panel-default">';
 echo '<div class="panel-body">';
 echo '<div class="btn-toolbar">';
-echo '<a href="index.php?pid=intranet_reservation_book" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Eine Reservierung hinzufügen</a>';
+echo '<a href="index.php?pid=intranet_reservation_book" class="btn btn-secondary"><i class="fa fa-plus" aria-hidden="true"></i> Eine Reservierung hinzufügen</a>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
@@ -89,11 +89,11 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 	echo '<div class="panel-body">';
 	echo '<div class="row">';
-	echo '<div class="col-xs-12 col-sm-9 col-md-10">';
+	echo '<div class="col-12 col-sm-9 col-md-10">';
 	echo nl2br($row['beschreibung']);
 	echo '</div>';
 
-	echo '<div class="hidden-xs col-sm-3 col-md-2">';
+	echo '<div class="d-none d-sm-block col-sm-3 col-md-2">';
 	echo $libPerson->getSignature($row['person']);
 	echo '</div>';
 

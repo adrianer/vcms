@@ -28,7 +28,7 @@ $semesterNow = $libTime->getSemesterName();
 
 <div class="panel panel-default">
 	<div class="panel-body">
-		<table class="table table-condensed">
+		<table class="table table-sm">
 			<tr>
 				<th colspan="2">Import</th>
 			</tr>
@@ -37,13 +37,8 @@ $semesterNow = $libTime->getSemesterName();
 				<td>
 					<form action="api.php?iid=intranet_admin_import_persons&amp;datenart=import" method="post" enctype="multipart/form-data">
 						<div class="input-group">
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="customFileInput" name="file">
-								<label class="custom-file-label" for="customFileInput">CSV Upload:</label>
-							</div>
-							<div class="input-group-append">
-								<input type="submit" name="submit" value="Upload" class="btn btn-primary">
-							</div>
+							<input type="file" class="form-control" id="customFileInputPersons" name="file" aria-label="CSV Upload">
+							<button type="submit" name="submit" value="Upload" class="btn btn-primary">Upload</button>
 						</div>
 					</form>
 				</td>
@@ -53,13 +48,8 @@ $semesterNow = $libTime->getSemesterName();
 				<td>
 					<form action="api.php?iid=intranet_admin_import_veranstaltungen&amp;datenart=import" method="post" enctype="multipart/form-data">
 						<div class="input-group">
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="customFileInput" name="file">
-								<label class="custom-file-label" for="customFileInput">CSV Upload:</label>
-							</div>
-							<div class="input-group-append">
-								<input type="submit" name="submit" value="Upload" class="btn btn-primary">
-							</div>
+							<input type="file" class="form-control" id="customFileInputEvents" name="file" aria-label="CSV Upload">
+							<button type="submit" name="submit" value="Upload" class="btn btn-primary">Upload</button>
 						</div>
 					</form>
 				</td>

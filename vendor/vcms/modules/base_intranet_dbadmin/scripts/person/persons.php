@@ -113,7 +113,7 @@ if($libAuth->isLoggedin()){
 		echo '<div class="panel panel-default">';
 		echo '<div class="panel-body">';
 		echo '<div class="btn-toolbar">';
-		echo '<a href="index.php?pid=intranet_admin_person&amp;aktion=blank" class="btn btn-default">Eine neue Person anlegen</a>';
+		echo '<a href="index.php?pid=intranet_admin_person&amp;aktion=blank" class="btn btn-secondary">Eine neue Person anlegen</a>';
 		echo '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -123,9 +123,9 @@ if($libAuth->isLoggedin()){
 	echo '<div class="panel-body">';
 	echo '<form action="index.php?pid=intranet_admin_persons" method="post" class="form-inline">';
 	echo '<fieldset>';
-	echo '<div class="form-group">';
+	echo '<div class="mb-3 row">';
 
-	echo '<label class="sr-only" for="sortierung">Sortierung</label>';
+	echo '<label class="visually-hidden" for="sortierung">Sortierung</label>';
 	echo '<select id="orderby" name="orderby" class="form-control" onchange="this.form.submit()">';
 	echo '<option value="0" ';
 
@@ -169,7 +169,7 @@ if($libAuth->isLoggedin()){
 	echo '<div class="panel panel-default">';
 	echo '<div class="panel-body">';
 
-	echo '<table class="table table-condensed table-striped table-hover">';
+	echo '<table class="table table-sm table-striped table-hover">';
 	echo '<thead>';
 	echo '<tr><th>Id</th><th>Präfix</th><th>Name</th><th>Suffix</th><th>Vorname</th><th>Gruppe</th><th>Status</th><th>Reception</th><th></th></tr>';
 	echo '</thead>';

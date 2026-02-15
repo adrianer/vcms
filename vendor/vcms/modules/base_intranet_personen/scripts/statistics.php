@@ -98,9 +98,9 @@ $stmt->execute();
 $stmt->bindColumn('number', $aktive);
 $stmt->fetch();
 
-echo '<div class="col-xs-12 col-sm-4">';
+echo '<div class="col-12 col-sm-4">';
 echo '<p class="mb-4">';
-echo '<span class="badge badge-default">' .$aktive. '</span> Aktive';
+echo '<span class="badge text-bg-secondary">' .$aktive. '</span> Aktive';
 echo '</p>';
 echo '</div>';
 
@@ -110,9 +110,9 @@ $stmt->execute();
 $stmt->bindColumn('number', $inLoco);
 $stmt->fetch();
 
-echo '<div class="col-xs-12 col-sm-4">';
+echo '<div class="col-12 col-sm-4">';
 echo '<p class="mb-4">';
-echo '<span class="badge badge-default">' .$inLoco. '</span> in loco';
+echo '<span class="badge text-bg-secondary">' .$inLoco. '</span> in loco';
 echo '</p>';
 echo '</div>';
 
@@ -122,9 +122,9 @@ $stmt->execute();
 $stmt->bindColumn('number', $inaktive);
 $stmt->fetch();
 
-echo '<div class="col-xs-12 col-sm-4">';
+echo '<div class="col-12 col-sm-4">';
 echo '<p class="mb-4">';
-echo '<span class="badge badge-default">' .$inaktive. '</span> ex loco oder inaktiv';
+echo '<span class="badge text-bg-secondary">' .$inaktive. '</span> ex loco oder inaktiv';
 echo '</p>';
 echo '</div>';
 
@@ -133,7 +133,7 @@ echo '</div>';
 
 echo '<div class="panel panel-default">';
 echo '<div class="panel-body">';
-echo '<table class="table table-bordered table-condensed">';
+echo '<table class="table table-bordered table-sm">';
 
 //for all semesters
 foreach($tArray as $key1 => $value1){

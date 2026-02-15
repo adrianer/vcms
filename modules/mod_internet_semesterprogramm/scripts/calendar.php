@@ -46,7 +46,7 @@ if($semesterProgrammAvailable){
 
 
 echo '<div class="row">';
-echo '<div class="col-xs-12 col-sm-6">';
+echo '<div class="col-12 col-sm-6">';
 
 $stmt = $libDb->prepare('SELECT * FROM base_semester ORDER BY SUBSTRING(semester,3) DESC');
 $stmt->execute();
@@ -60,16 +60,16 @@ echo $libTime->getSemesterMenu($daten, $libGlobal->semester);
 
 echo '</div>';
 
-echo '<div class="col-xs-12 col-sm-6">';
+echo '<div class="col-12 col-sm-6">';
 echo '<div class="panel panel-default">';
 echo '<div class="panel-body">';
 echo '<div class="btn-toolbar">';
 echo '<p> Semesterprogramm abonnieren mit: </p>';
-echo '<a href="https://calendar.google.com/calendar/r?cid=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i> Google Calendar</a>';
-echo '<a href="https://outlook.live.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-default" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (privat)</a>';
-echo '<a href="https://outlook.office.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-default" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (business)</a>';
+echo '<a href="https://calendar.google.com/calendar/r?cid=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary"><i class="fa fa-calendar" aria-hidden="true"></i> Google Calendar</a>';
+echo '<a href="https://outlook.live.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (privat)</a>';
+echo '<a href="https://outlook.office.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (business)</a>';
 echo '  ';
-echo '<a href="webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i> Sonstige (per webcal/ics)</a>';
+echo '<a href="webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary"><i class="fa fa-calendar" aria-hidden="true"></i> Sonstige (per webcal/ics)</a>';
 echo '<p><select onchange="if (this.value) window.location.href=this.value" class="form-control">';
 echo '<option value="">Anleitungen:</option>';
 echo '<option value="https://translate.google.com/translate?js=n&sl=en&tl=de&u=https://icsx5.bitfire.at/usage/">Android mit ICSx⁵</option>';

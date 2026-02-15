@@ -14,11 +14,12 @@ Packages
 
 ### Other packages that are not-up-to-date, hence need upgrades:
 
-* blueimp-file-upload (https://github.com/blueimp/jQuery-File-Upload/)
+* blueimp-file-upload ( blueimp/jquery-file-upload )
 * hover (https://github.com/IanLunn/Hover/)
 * libre-franklin (https://fontsource.org/fonts/libre-franklin + https://www.npmjs.com/package/@fontsource/libre-franklin/)
 * phpass (https://www.openwall.com/phpass/ + https://github.com/openwall/phpass/)
-* * Stright-forward upgrade to 0.5.4 breaks the login...
+* * Straight-forward upgrade to 0.5.4 breaks the login...
+* * Alternative: switch to bordoni/phpass
 * scrollreveal (https://github.com/jlmakes/scrollreveal/)
 
 
