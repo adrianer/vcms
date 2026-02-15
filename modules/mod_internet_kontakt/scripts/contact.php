@@ -128,8 +128,8 @@ if($libConfig->verbindungZusatz != ''){
 echo '<span>' .$libConfig->verbindungStrasse. '</span><br />';
 echo '<span>' .$libConfig->verbindungPlz. '</span> <span>' .$libConfig->verbindungOrt. '</span><br />';
 echo '<span>' .$libConfig->verbindungLand. '</span><br />';
-echo '<i class="fa fa-phone fa-fw" aria-hidden="true"></i> <span>' .$libConfig->verbindungTelefon. '</span><br />';
-echo '<i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> <span>' .$libConfig->emailInfo. '</span><br />';
+echo '<a href="tel:' .$libConfig->verbindungTelefon. '"> <i class="fa fa-phone fa-fw" aria-hidden="true"></i> <span>' .$libConfig->verbindungTelefon. '</span></a><br />';
+echo '<a href="mailto:ENTFERNEDASVORDEMSENDEN+'.$libConfig->emailInfo.'"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> <span style="display:none">ENTFERNEDASVORDEMSENDEN+</span><span>' .$libConfig->emailInfo. '</span></a><br />';
 echo '</address>';
 
 echo '<p class="contact-vorstand mb-4">';
@@ -248,5 +248,5 @@ if($libGenericStorage->loadValueInCurrentModule('show_haftungshinweis')){
 
 echo '<h2>VCMS</h2>';
 echo '<section class="cms-box">';
-echo '<p class="mb-4">Content Management System: <a href="http://www.' .$libGlobal->vcmsHostname. '">VCMS</a> (GNU General Public License)</p>';
+echo '<p class="mb-4">Content Management System: <a href="https://' .$libGlobal->vcmsHostname. '/vcms_page">VCMS</a> (GNU General Public License)</p>';
 echo '</section>';

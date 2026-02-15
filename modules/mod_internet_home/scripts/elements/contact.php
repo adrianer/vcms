@@ -36,12 +36,12 @@ echo '<hr>';
 echo '<p class="mb-4">Interesse geweckt? Großartig! Melde Dich bei uns und wir antworten Dir schnellstmöglich.</p>';
 echo '</div>';
 echo '<div class="col-lg-4 offset-lg-2 text-center">';
-echo '<i class="fa fa-phone fa-3x sr-contact reveal"></i>';
-echo '<p class="mb-4">' .$libConfig->verbindungTelefon. '</p>';
+echo '<a href="tel:' .$libConfig->verbindungTelefon. '"><i class="fa fa-phone fa-3x sr-contact reveal"></i>';
+echo '<p class="mb-4">' .$libConfig->verbindungTelefon. '</p></a>';
 echo '</div>';
 echo '<div class="col-lg-4 text-center">';
-echo '<i class="fa fa-envelope-o fa-3x sr-contact reveal"></i>';
-echo '<p class="mb-4">' .$libConfig->emailInfo. '</p>';
+echo '<a href="mailto:ENTFERNEDASVORDEMSENDEN+'.$libConfig->emailInfo.'"><i class="fa fa-envelope-o fa-3x sr-contact reveal"></i>';
+echo '<p class="mb-4"><span style="display:none">ENTFERNEDASVORDEMSENDEN+</span>' .$libConfig->emailInfo. '</p></a>';
 
 echo '</div>';
 echo '</div>';
