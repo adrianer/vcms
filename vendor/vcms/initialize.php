@@ -35,6 +35,8 @@ ini_set('arg_separator.output', '&amp;');
 /*
 * set up session
 */
+session_set_cookie_params(['samesite' => 'Strict']);
+
 if(isset($_COOKIE[session_name()])){
 	session_start();
 }
