@@ -38,8 +38,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	}
 
 	echo '<p class="caption mb-3">';
-	$text = nl2br(trim($row['text']));
-	echo $libString->parseBBCode($text);
+	echo nl2br(trim($row['text']));
 	echo '</p>';
 
 	echo '</div>';

@@ -64,22 +64,6 @@ class LibString{
 		}
 	}
 
-	function parseBBCode($text){
-		$text = preg_replace('/\[b\](.*?)\[\/b\]/', '<b>$1</b>', $text);
-		$text = preg_replace('/\[i\](.*?)\[\/i\]/', '<i>$1</i>', $text);
-		$text = preg_replace('#(\[url=?"?)([^\]"]*)("?\])([^\[]*)(\[/url\])#', '<a href="$2">$4</a>', $text);
-
-		return $text;
-	}
-
-	function deleteBBCode($text){
-		$text = preg_replace('/\[b\](.*?)\[\/b\]/', '$1', $text);
-		$text = preg_replace('/\[i\](.*?)\[\/i\]/', '$1', $text);
-		$text = preg_replace('#(\[url=?"?)([^\]"]*)("?\])([^\[]*)(\[/url\])#', '$4', $text);
-
-		return $text;
-	}
-
 	function getNotificationBoxText(){
 		global $libGlobal;
 
