@@ -26,9 +26,9 @@ $semesterNow = $libTime->getSemesterName();
 <h1>Import</h1>
 <p class="mb-4">Das VCMS kann Datenbestände per CSV-Tabellen importieren. Damit das funktionieren kann, <u>müssen</u> die Spalten der CSV genau so geordnet und benannt sein, wie <a href="import_mitglieder_beispiel.csv">im hier verlinktem Beispiel für Mitglieder</a> und <a href="import_veranstaltungen_beispiel.csv">hier für Veranstaltungen</a> zu sehen ist.</p>
 
-<div class="panel panel-default">
-	<div class="panel-body">
-		<table class="table table-condensed">
+<div class="card">
+	<div class="card-body">
+		<table class="table table-sm">
 			<tr>
 				<th colspan="2">Import</th>
 			</tr>
@@ -37,13 +37,8 @@ $semesterNow = $libTime->getSemesterName();
 				<td>
 					<form action="api.php?iid=intranet_admin_import_persons&amp;datenart=import" method="post" enctype="multipart/form-data">
 						<div class="input-group">
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="customFileInput" name="file">
-								<label class="custom-file-label" for="customFileInput">CSV Upload:</label>
-							</div>
-							<div class="input-group-append">
-								<input type="submit" name="submit" value="Upload" class="btn btn-primary">
-							</div>
+							<input type="file" class="form-control" id="customFileInputPersons" name="file" aria-label="CSV Upload">
+							<button type="submit" name="submit" value="Upload" class="btn btn-primary">Upload</button>
 						</div>
 					</form>
 				</td>
@@ -53,13 +48,8 @@ $semesterNow = $libTime->getSemesterName();
 				<td>
 					<form action="api.php?iid=intranet_admin_import_veranstaltungen&amp;datenart=import" method="post" enctype="multipart/form-data">
 						<div class="input-group">
-							<div class="custom-file">
-								<input type="file" class="custom-file-input" id="customFileInput" name="file">
-								<label class="custom-file-label" for="customFileInput">CSV Upload:</label>
-							</div>
-							<div class="input-group-append">
-								<input type="submit" name="submit" value="Upload" class="btn btn-primary">
-							</div>
+							<input type="file" class="form-control" id="customFileInputEvents" name="file" aria-label="CSV Upload">
+							<button type="submit" name="submit" value="Upload" class="btn btn-primary">Upload</button>
 						</div>
 					</form>
 				</td>

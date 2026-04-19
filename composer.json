@@ -2,9 +2,9 @@
     "name": "vcms/vcms",
     "type": "project",
     "require": {
-        "twbs/bootstrap": "^3.4.1",
+        "twbs/bootstrap": "^5.3.8",
         "components/font-awesome": "^4.7.0",
-        "components/jquery": "^2.2.4",
+        "components/jquery": "^3.7.1",
         "php": ">=8.0.0",
         "phpmailer/phpmailer": "^6.9.1",
         "nategood/httpful": "*",

@@ -567,7 +567,7 @@ class LibTime{
 		$file = $this->determineSemesterCover($semesterString);
 
 		if($file != ''){
-			return '<img src="custom/semestercover/' .$file. '" class="img-responsive center-block" alt="Semestercover ' .$semesterString . '" />';
+			return '<img src="custom/semestercover/' .$file. '" class="img-fluid mx-auto" alt="Semestercover ' .$semesterString . '" />';
 		}
 	}
 
@@ -579,7 +579,7 @@ class LibTime{
 		$file = $this->determineSemesterProgramm($semesterString);
 
 		if($file != ''){
-			return '<a href="custom/semesterprogramm/' .$file. '" class="center-block">' . $this->getSemesterCoverString($semesterString) . '<h3>Semesterprogramm ' .$semesterString . ' als PDF</h3></a>';
+			return '<a href="custom/semesterprogramm/' .$file. '" class="mx-auto">' . $this->getSemesterCoverString($semesterString) . '<h3>Semesterprogramm ' .$semesterString . ' als PDF</h3></a>';
 		}
 	}
 
@@ -631,12 +631,12 @@ class LibTime{
 		$retstr = '';
 
 		if(count($semesters) > 1 || (count($semesters) == 1 && ($semesters[0] != $globalsemester))){
-			$retstr .= '<div class="panel panel-default">';
-			$retstr .= '<div class="panel-body">';
+			$retstr .= '<div class="card">';
+			$retstr .= '<div class="card-body">';
 			$retstr .= '<form action="index.php" class="form-inline">';
 			$retstr .= '<fieldset>';
 			$retstr .= '<input type="hidden" name="pid" value="' . $libGlobal->pid . '"/>';
-			$retstr .= '<label for="semester" class="sr-only">Semester</label>';
+			$retstr .= '<label for="semester" class="visually-hidden">Semester</label>';
 			$retstr .= '<select id="semester" name="semester" class="form-control" onchange=\'this.form.submit()\'>';
 
 			foreach($semesters as $semester){
@@ -654,7 +654,7 @@ class LibTime{
 			}
 
 			$retstr .= '</select> ';
-			$retstr .= '<button type="submit" class="hidden-xs btn btn-default"><i class="fa fa-calendar-o" aria-hidden="true"></i> Semester wählen</button>';
+			$retstr .= '<button type="submit" class="d-none d-sm-block btn btn-secondary"><i class="fa fa-calendar-o" aria-hidden="true"></i> Semester wählen</button>';
 			$retstr .= '</fieldset>';
 			$retstr .= '</form>';
 			$retstr .= '</div>';

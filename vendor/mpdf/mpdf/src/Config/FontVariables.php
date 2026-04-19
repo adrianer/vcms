@@ -198,7 +198,7 @@ class FontVariables
 					'useOTL' => 0xFF,
 				],
 				"eeyekunicode" => [/* Meetei Mayek */
-					'R' => "Eeyek.ttf",
+					'R' => "Eeyek-Regular.ttf",
 				],
 				"lannaalif" => [/* Tai Tham */
 					'R' => "lannaalif-v1-03.ttf",
@@ -287,7 +287,7 @@ class FontVariables
 					'R' => "UnBatang_0613.ttf",
 				],
 				"fontawesome" => [
-					'R' => "fontawesome-webfont.ttf",
+						'R' => "fontawesome-webfont.ttf",
 				],
 			],
 
