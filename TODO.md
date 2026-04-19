@@ -39,11 +39,17 @@ Packages
 * Load Leaflet.js from CDN only if the map was activated
 * Load HCaptcha from CDN only if HCaptcha was activated
 
+### Make the event- and user-import more user-friendly
+
+* Show a nice dialog while importing instead of a text-only-page
+* On error, try to inform the user what is wrong, e.g.:
+  * wrongly formatted dates
+  * wrong file-encoding (must be UTF-8 without BOM)
+
 
 Add new features
 ----------------
-* Navigate between photos with the keyboard arrows
-* On the registration page let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
+* On the registration page, let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
   * The default should be "Philister"
 * Allow registration for a "mailinglist"-only (without any user-login-possibility)
   * The purpose is to allow interested persons to be kept in the email-loop
@@ -55,5 +61,8 @@ Add new features
 Fix Bugs
 --------
 * Browser-Back-Button breaking the page on many occasions (e.g. photo-gallery)
+  * hopefully fixed with the migration to Bootstrap 5 and JQuery 3
 * Browser-Refresh-Button creating new login-sessions sometimes
+  * hopefully fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
 * Login Session very short - was longer before
+  * hopefully fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68

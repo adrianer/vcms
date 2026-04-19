@@ -47,7 +47,22 @@ $(document).ready(function() {
 			modalInstance = bootstrap.Modal.getOrCreateInstance(document.getElementById('gallery-modal'));
 			modalInstance.show();
 		}
+
+		$('.carousel-control-next').focus();
 	});
+});
+
+$(document).keydown(function(e) {
+    if (e.keyCode === 37) {
+       // Previous
+       $(".carousel-control-prev").click();
+       return false;
+    }
+    if (e.keyCode === 39) {
+       // Next
+       $(".carousel-control-next").click();
+       return false;
+    }
 });
 
 function createCarouselItem(a){
