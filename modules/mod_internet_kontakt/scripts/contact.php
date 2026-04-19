@@ -183,7 +183,7 @@ if($libGenericStorage->loadValueInCurrentModule('show_map')){
     $longitude = $libGenericStorage->loadValueInCurrentModule('map_longitude');
     echo '<div id="addressmap" class="img-fluid mx-start reveal" style="width:500px; height:300px;"></div>';
     echo '<script>var map = L.map("addressmap").setView(['.$latitude.', '.$longitude.'], 15);
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        L.tileLayer("https://tile.openstreetmap.de/{z}/{x}/{y}.png",
         { maxZoom: 19, attribution: "&copy; \<a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a>"}).addTo(map);
         var marker = L.marker(['.$latitude.', '.$longitude.']).addTo(map);
         marker.bindPopup("<b>' .$libConfig->verbindungName. '</b>").openPopup();
