@@ -35,14 +35,14 @@ class LibCronjobs{
 
 	var $directoriesToCreate = array('temp', 'custom/styles', 'custom/intranet',
 		'custom/intranet/downloads', 'custom/intranet/mitgliederfotos',
-		'custom/semestercover', 'custom/veranstaltungsfotos');
+		'custom/semestercover', 'custom/veranstaltungsfotos', 'PhpSessionData');
 
 	var $directoriesWithHtaccessFile = array('custom/intranet',
 		'custom/veranstaltungsfotos', 'temp', 'vendor/nategood',
 		'vendor/composer', 'vendor/setasign', 'vendor/psr',
 		'vendor/paragonie', 'vendor/pear', 'vendor/mpdf', 'vendor/myclabs',
 		'vendor/phpass', 'vendor/phpmailer', 'vendor/vcms/install', 'vendor/vcms/layout',
-		'vendor/vcms/lib', 'vendor/vcms/modules');
+		'vendor/vcms/lib', 'vendor/vcms/modules', 'PhpSessionData');
 
 	function executeDueJobs(){
 		global $libDb;
