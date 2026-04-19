@@ -37,24 +37,25 @@ class LibMenuRenderer{
 
 		$navbarClass = $this->getNavbarClass();
 
+		$brand = $libGenericStorage->loadValue('base_core', 'brand');
+		$brandXs = $libGenericStorage->loadValue('base_core', 'brand_xs');
+
 		echo '    <nav id="nav" class="navbar navbar-vcms navbar-expand-lg fixed-top navbar-light bg-light ' .$navbarClass. '" role="navigation">' . PHP_EOL;
 		echo '      <div class="container">' . PHP_EOL;
 		echo '      	<div class="flex-column d-flex flex-grow-1">' . PHP_EOL;
 
-		echo '      	<div class="flex-row">' . PHP_EOL;
-		echo '        <div id="logo"></div>' . PHP_EOL;
+		echo '      		<div class="flex-row position-relative">' . PHP_EOL;
+		echo '        			<div id="logo"></div>' . PHP_EOL;
+		echo '        			<div class="position-absolute top-50 start-50 translate-middle"><a href="index.php" class="navbar-brand d-inline d-sm-none">' .$brand. '</a></div>' . PHP_EOL;
 		echo $this->printNavbarCollapsed();
-		echo '        </div>' . PHP_EOL;
+		echo '        		</div>' . PHP_EOL;
 
-		echo '        <div id="navbar-internet" class="w-100 collapse navbar-collapse navbar-internet">' . PHP_EOL;
+		echo '      		<div id="navbar-internet" class="w-100 collapse navbar-collapse navbar-internet">' . PHP_EOL;
 
-		$brand = $libGenericStorage->loadValue('base_core', 'brand');
-		$brandXs = $libGenericStorage->loadValue('base_core', 'brand_xs');
-		echo '        <a href="index.php" class="navbar-brand d-none d-sm-inline">' .$brand. '</a>' . PHP_EOL;
-		echo '        <a href="index.php" class="navbar-brand d-inline d-sm-none">' .$brandXs. '</a>' . PHP_EOL;
+		echo '        			<a href="index.php" class="navbar-brand d-none d-sm-inline">' .$brand. '</a>' . PHP_EOL;
 
 		echo $this->printNavbarInternet($menuInternet, $aktivesPid);
-		echo '        </div>' . PHP_EOL;
+		echo '        		</div>' . PHP_EOL;
 
 		echo $this->printNavbarIntranet($menuIntranet, $menuAdministration, $aktivesPid);
 		echo '      	</div>' . PHP_EOL;
@@ -63,7 +64,7 @@ class LibMenuRenderer{
 	}
 
 	function printNavbarCollapsed(){
-		echo '        <button style="float: right;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-internet,#navbar-intranet" aria-controls="navbar-internet" aria-expanded="false" aria-label="Navigation">' . PHP_EOL;
+		echo '        <button class="navbar-toggler position-absolute top-50 end-0 translate-middle-y" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-internet,#navbar-intranet" aria-controls="navbar-internet" aria-expanded="false" aria-label="Navigation">' . PHP_EOL;
 		echo $this->defaultIndent . '<span class="navbar-toggler-icon" style="background-image: url(\'vendor/vcms/styles/navigation/menu.svg\');"></span>' . PHP_EOL;
 		echo '        </button>' . PHP_EOL;
 	}
