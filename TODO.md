@@ -50,9 +50,11 @@ Packages
 
 Add new features
 ----------------
+* Add the hCaptcha on the login-page and on the contact-form
+* Add the possibility to disable the hCaptcha selectively without the need to disable it globally
 * On the registration page, let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
   * The default should be "Philister"
-* Allow registration for a "mailinglist"-only (without any user-login-possibility)
+* Allow registration for a "mailinglist"-only-user (without any user-login-possibility)
   * The purpose is to allow interested persons to be kept in the email-loop
 * Automate the user- and malilinglist-registrations more
   * Instead of the now copy&pasting data from emails, already create the user in the DB, but in a status "inactive-confirmation-needed"
