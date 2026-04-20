@@ -6,11 +6,11 @@
         "components/font-awesome": "^4.7.0",
         "components/jquery": "^3.7.1",
         "php": ">=8.0.0",
-        "phpmailer/phpmailer": "^6.9.1",
-        "nategood/httpful": "*",
+        "phpmailer/phpmailer": "^6.12.0",
+        "nategood/httpful": "^1.0.0",
         "nnnick/chartjs": "2.9.4",
-        "pear/archive_tar": "^1.4.14",
-        "mpdf/mpdf": "^8.2.2"
+        "pear/archive_tar": "^1.6.0",
+        "mpdf/mpdf": "^8.2.7"
     },
     "license": "GPL-3.0+"
 }
