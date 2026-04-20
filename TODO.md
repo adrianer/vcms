@@ -63,7 +63,7 @@ Add new features
 
 Known Bugs
 --------
-* None
+* hCaptcha cannot currently be disabled and a valid hCaptcha configuration is required for user-registration and password-reset to work
 
 
 Fixed Bugs
