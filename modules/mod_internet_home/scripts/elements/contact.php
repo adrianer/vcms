@@ -36,7 +36,7 @@ echo '<hr>';
 echo '<p class="mb-4">Interesse geweckt? Großartig! Melde Dich bei uns und wir antworten Dir schnellstmöglich.</p>';
 echo '</div>';
 echo '<div class="col-lg-4 offset-lg-2 text-center">';
-echo '<a href="tel:' .$libConfig->verbindungTelefon. '"><i class="fa fa-phone fa-3x sr-contact reveal"></i>';
+echo '<a href="tel:' .filter_var($libConfig->verbindungTelefon, FILTER_SANITIZE_NUMBER_INT). '"><i class="fa fa-phone fa-3x sr-contact reveal"></i>';
 echo '<p class="mb-4">' .$libConfig->verbindungTelefon. '</p></a>';
 echo '</div>';
 echo '<div class="col-lg-4 text-center">';

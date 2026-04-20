@@ -140,7 +140,7 @@ if($libConfig->verbindungZusatz != ''){
 echo '<span>' .$libConfig->verbindungStrasse. '</span><br />';
 echo '<span>' .$libConfig->verbindungPlz. '</span> <span>' .$libConfig->verbindungOrt. '</span><br />';
 echo '<span>' .$libConfig->verbindungLand. '</span><br />';
-echo '<a href="tel:' .$libConfig->verbindungTelefon. '"> <i class="fa fa-phone fa-fw" aria-hidden="true"></i> <span>' .$libConfig->verbindungTelefon. '</span></a><br />';
+echo '<a href="tel:'.filter_var($libConfig->verbindungTelefon, FILTER_SANITIZE_NUMBER_INT). '"> <i class="fa fa-phone fa-fw" aria-hidden="true"></i> <span>' .$libConfig->verbindungTelefon. '</span></a><br />';
 echo '<a href="mailto:ENTFERNEDASVORDEMSENDEN+'.$libConfig->emailInfo.'"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> <span style="display:none">ENTFERNEDASVORDEMSENDEN+</span><span>' .$libConfig->emailInfo. '</span></a><br />';
 echo '</address>';
 
