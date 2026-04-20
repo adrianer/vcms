@@ -39,6 +39,7 @@ Packages
 * Load Leaflet.js from CDN only if the map was activated
 * Load HCaptcha from CDN only if HCaptcha was activated
 
+
 ### Make the event- and user-import more user-friendly
 
 * Show a nice dialog while importing instead of a text-only-page
@@ -58,11 +59,18 @@ Add new features
   * For mailinglists, optionally allow complete automation - but only, if the email address has been automatically confirmed
 
 
-Fix Bugs
+Known Bugs
 --------
+* None
+
+
+Fixed Bugs
+----------
 * Browser-Back-Button breaking the page on many occasions (e.g. photo-gallery)
-  * hopefully fixed with the migration to Bootstrap 5 and JQuery 3
+  * fixed with the migration to Bootstrap 5 and JQuery 3
 * Browser-Refresh-Button creating new login-sessions sometimes
-  * hopefully fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
+  * fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
 * Login Session very short - was longer before
-  * hopefully fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
+  * fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
+* Navigation between photos with the keyboard arrows didn't work
+  * fixed with https://github.com/adrianer/vcms/commit/432522a5874e0cc3f2c4108ce91bd41059fdd9c9
