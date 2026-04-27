@@ -34,7 +34,7 @@ if($semesterProgrammAvailable){
 	echo '<div class="card-body">';
 	echo '<div class="card">';
 
-	echo '<div class="semestercover-box mx-auto">';
+	echo '<div class="semestercover-box mx-auto" style="max-width: 350px;">';
 	echo $semesterProgrammString;
 	echo '</div>';
 
@@ -64,13 +64,15 @@ echo '<div class="col-12 col-sm-6">';
 echo '<div class="card">';
 echo '<div class="card-body">';
 echo '<div class="btn-toolbar">';
-echo '<p> Semesterprogramm abonnieren mit: </p>';
-echo '<a href="https://calendar.google.com/calendar/r?cid=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary"><i class="fa fa-calendar" aria-hidden="true"></i> Google Calendar</a>';
-echo '<a href="https://outlook.live.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (privat)</a>';
-echo '<a href="https://outlook.office.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (business)</a>';
+
+echo '<span><p> Semesterprogramm abonnieren mit: </p></span>';
+echo '<div class="btn-group" role="group"><a href="https://calendar.google.com/calendar/r?cid=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary btn-sm"><i class="fa fa-calendar" aria-hidden="true"></i> Google Calendar</a>';
+echo '<a href="https://outlook.live.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (privat)</a>';
+echo '<a href="https://outlook.office.com/calendar/0/addfromweb?url=webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer"><i class="fa fa-calendar" aria-hidden="true"></i> Outlook (business)</a>';
 echo '  ';
-echo '<a href="webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary"><i class="fa fa-calendar" aria-hidden="true"></i> Sonstige (per webcal/ics)</a>';
-echo '<p><select onchange="if (this.value) window.location.href=this.value" class="form-control">';
+echo '<a href="webcal://' .$libGlobal->getSiteUrlAuthority(). '/api.php?iid=semesterprogramm_icalendar" class="btn btn-secondary btn-sm"><i class="fa fa-calendar" aria-hidden="true"></i> Sonstige (per webcal/ics)</a></div>';
+
+echo '<p><select onchange="if (this.value) window.location.href=this.value" class="form-select mt-3">';
 echo '<option value="">Anleitungen:</option>';
 echo '<option value="https://translate.google.com/translate?js=n&sl=en&tl=de&u=https://icsx5.bitfire.at/usage/">Android mit ICSx⁵</option>';
 echo '<option value="https://f-droid.org/de/packages/at.bitfire.icsdroid/">Android ICSx⁵ Download (kostenlos)</option>';
@@ -81,6 +83,7 @@ echo '<option value="https://support.google.com/calendar/answer/37100?hl=de&co=G
 echo '<option value="https://support.microsoft.com/de-de/office/importieren-oder-abonnieren-eines-kalenders-in-outlook-com-oder-outlook-im-web-cff1429c-5af6-41ec-a5b4-74f2c278e98c#ID0EDD=Personal_account">Microsoft Outlook</option>';
 echo '<option value="https://support.mozilla.org/de/kb/neue-kalender-erstellen/">Thunderbird</option>';
 echo '</select></p>';
+
 echo '</div>';
 echo '</div>';
 echo '</div>';
