@@ -46,13 +46,16 @@ class LibMenuRenderer{
 
 		echo '      		<div class="flex-row position-relative">' . PHP_EOL;
 		echo '        			<div id="logo"></div>' . PHP_EOL;
-		echo '        			<div class="position-absolute top-50 start-50 translate-middle"><a href="index.php" class="navbar-brand d-inline d-sm-none">' .$brand. '</a></div>' . PHP_EOL;
+		echo '        			<div class="position-absolute top-50 start-50 translate-middle">' . PHP_EOL;
+		echo '        				<a href="index.php" class="navbar-brand d-inline d-sm-none">' .$brandXs. '</a>' . PHP_EOL;
+		echo '        				<a href="index.php" class="navbar-brand d-none d-sm-inline d-lg-none">' .$brand. '</a>' . PHP_EOL;
+		echo '        			</div>' . PHP_EOL;
 		echo $this->printNavbarCollapsed();
 		echo '        		</div>' . PHP_EOL;
 
 		echo '      		<div id="navbar-internet" class="w-100 collapse navbar-collapse navbar-internet">' . PHP_EOL;
 
-		echo '        			<a href="index.php" class="navbar-brand d-none d-sm-inline">' .$brand. '</a>' . PHP_EOL;
+		echo '        			<a href="index.php" class="navbar-brand d-none d-lg-inline">' .$brand. '</a>' . PHP_EOL;
 
 		echo $this->printNavbarInternet($menuInternet, $aktivesPid);
 		echo '        		</div>' . PHP_EOL;
