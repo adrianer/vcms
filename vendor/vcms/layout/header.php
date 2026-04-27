@@ -4,7 +4,7 @@ echo '<html lang="de">' . PHP_EOL;
 echo '  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# business: http://ogp.me/ns/business#">' . PHP_EOL;
 echo '    <meta charset="utf-8" />' . PHP_EOL;
 echo '    <meta http-equiv="X-UA-Compatible" content="IE=edge" />' . PHP_EOL;
-echo '    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">' . PHP_EOL;
+echo '    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">' . PHP_EOL;
 echo '    <meta http-equiv="Pragma" content="no-cache">' . PHP_EOL;
 echo '    <meta http-equiv="Expires" content="0">' . PHP_EOL;
 echo '    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>' . PHP_EOL;
@@ -26,8 +26,6 @@ echo '    <link rel="stylesheet" href="vendor/vcms/styles/person/person.css" />'
 echo '    <link rel="stylesheet" href="vendor/vcms/styles/timeline/timeline.css" />' . PHP_EOL;
 echo '    <link rel="stylesheet" href="custom/styles/screen.css" />' . PHP_EOL;
 echo '    <link rel="canonical" href="' .$libGlobal->getPageCanonicalUrl(). '"/>' . PHP_EOL;
-echo '    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />' . PHP_EOL;
-echo '    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>' . PHP_EOL;
 echo '    <script src="vendor/components/jquery/jquery.min.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>' . PHP_EOL;
 echo '    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>' . PHP_EOL;
@@ -46,9 +44,9 @@ if(is_array($libGlobal->module->getHeaderStrings())){
 * robots
 */
 if($libGlobal->page->hasAccessRestriction()){
-	echo '    <meta name="robots" content="noindex, nofollow, noarchive" />' . PHP_EOL;
+	echo '    <meta name="robots" content="noindex, nofollow, noarchive, nocache, notranslate, noimageindex" />' . PHP_EOL;
 } else {
-	echo '    <meta name="robots" content="index, follow, noarchive" />' . PHP_EOL;
+	echo '    <meta name="robots" content="index, follow, notranslate" />' . PHP_EOL;
 }
 
 /*
