@@ -8,6 +8,7 @@ Packages
 
 * chartjs (v2 -> v4)
 * font-awesome (v4 -> v6)
+  * ore replace with https://icons.getbootstrap.com/#install
 
 
 ### Other packages that are not-up-to-date, hence need upgrades:
@@ -64,12 +65,13 @@ Add new features
 Known Bugs
 --------
 * hCaptcha cannot currently be disabled and a valid hCaptcha configuration is required for user-registration and password-reset to work
+* Menu layout looks not ok on screen-width between 992px and 1199px -> the mobile-layout with the hamburger menu should be extended to work with resolutions up to 1199px instead of 991px now
 
 
 Fixed Bugs
 ----------
-* Browser-Back-Button breaking the page on many occasions (e.g. photo-gallery)
-  * fixed with the migration to Bootstrap 5 and JQuery 3
+* Browser-Back-Button breaking the page directly after a POST
+  * fixed with https://github.com/adrianer/vcms/commit/769c6c8272a0ee09fc5b93190b208c1c720cd842
 * Browser-Refresh-Button creating new login-sessions sometimes
   * fixed with https://github.com/adrianer/vcms/commit/d3a24d9a377fbf0301c399c193047ce12341bd68
 * Login Session very short - was longer before
