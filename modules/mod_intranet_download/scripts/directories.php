@@ -127,7 +127,7 @@ if(!empty($libAuth->getAemter())){
 
 	echo '<div class="mb-3 row">';
 	echo '<label for="hash" class="col-sm-3 col-form-label">in den Ordner</label>';
-	echo '<div class="col-sm-3"><select name="hash" class="form-control">';
+	echo '<div class="col-sm-3"><select name="hash" class="form-select">';
 
 	foreach($rootFolderObject->getNestedFoldersRec() as $folderElement){
 		if(in_array($folderElement->owningAmt, $libAuth->getAemter())){
@@ -196,7 +196,7 @@ if(!empty($libAuth->getAemter())){
 
 	echo '<div class="mb-3 row">';
 	echo '<label for="hash" class="col-sm-3 col-form-label">in Ordner</label>';
-	echo '<div class="col-sm-3"><select name="hash" class="form-control">';
+	echo '<div class="col-sm-3"><select name="hash" class="form-select">';
 
 	foreach($rootFolderObject->getNestedFoldersRec() as $folderElement){
 		if(in_array($folderElement->owningAmt, $libAuth->getAemter())){

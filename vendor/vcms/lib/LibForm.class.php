@@ -169,7 +169,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -201,7 +201,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -233,7 +233,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -265,7 +265,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -297,7 +297,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -329,7 +329,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -368,7 +368,7 @@ class LibForm{
 
 		$this->printDisabledString($disabled);
 
-		echo ' class="form-control">';
+		echo ' class="form-select">';
 
 		if($allowNull){
 			echo '<option value=""></option>';
@@ -394,7 +394,7 @@ class LibForm{
 	function printBoolSelectBox($name, $label, $selectedValue = 0){
 		echo '<div class="mb-3 row">';
 		echo '<label for="' .$name. '" class="col-sm-' .$this->colLabel. ' col-form-label">' .$label. '</label>';
-		echo '<div class="col-sm-' .$this->colInput. '"><select name="' .$name. '" class="form-control">';
+		echo '<div class="col-sm-' .$this->colInput. '"><select name="' .$name. '" class="form-select">';
 		echo '<option value="1"';
 
 		if($selectedValue > 0){
