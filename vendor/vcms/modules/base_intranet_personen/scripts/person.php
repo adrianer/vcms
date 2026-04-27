@@ -143,10 +143,12 @@ if($ownprofile){
 			$stmt->bindValue(':id', $libAuth->getId(), PDO::PARAM_INT);
 			$stmt->execute();
 		}
+		echo '<script>if (window.history.replaceState) { window.history.replaceState(null, null, window.location.href); }</script>';
 	} elseif(isset($_POST['formtyp']) && $_POST['formtyp'] == 'fotodatenupload'){
 		if($_FILES['bilddatei']['tmp_name'] != ''){
 			$libImage->savePersonFotoByFilesArray($libAuth->getId(), 'bilddatei');
 		}
+		echo '<script>if (window.history.replaceState) { window.history.replaceState(null, null, window.location.href); }</script>';
 	} elseif(isset($_POST['formtyp']) && $_POST['formtyp'] == 'personpasswort'){
 		if(!$libAuth->checkPasswordForPerson($libAuth->getId(), $_POST['oldpwd'])){
 			$libGlobal->errorTexts[] = 'Das alte Passwort ist nicht korrekt.';
@@ -157,6 +159,7 @@ if($ownprofile){
 		} else {
 			$libAuth->savePassword($libAuth->getId(), $_POST['newpwd1']);
 		}
+		echo '<script>if (window.history.replaceState) { window.history.replaceState(null, null, window.location.href); }</script>';
 	} elseif(isset($_GET['aktion']) && $_GET['aktion'] == 'fotodelete'){
 		$libImage->deletePersonFoto($libAuth->getId());
 	}

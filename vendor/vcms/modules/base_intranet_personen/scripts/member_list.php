@@ -93,6 +93,8 @@ if(isset($_POST['searchterm']) && $_POST['searchterm'] != ''){
 	$stmt->bindValue(':semester_fusion', '%'.$_POST['searchterm'].'%');
 	$stmt->bindValue(':spitzname', '%'.$_POST['searchterm'].'%');
 
+	echo '<script>if (window.history.replaceState) { window.history.replaceState(null, null, window.location.href); }</script>';
+
 	printPersons($stmt);
 }
 //no search term
