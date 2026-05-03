@@ -52,20 +52,27 @@ Packages
 Add new features
 ----------------
 * Add the hCaptcha on the login-page and on the contact-form
-* Add the possibility to disable the hCaptcha selectively without the need to disable it globally
+* Add the possibility to disable the hCaptcha selectively on some pages without the need to disable it globally
 * On the registration page, let the user choose the category (e.g. "Ehepartner" or "Verbindungsfreund"), so more confusing cases will be clearer
   * The default should be "Philister"
 * Allow registration for a "mailinglist"-only-user (without any user-login-possibility)
   * The purpose is to allow interested persons to be kept in the email-loop
 * Automate the user- and malilinglist-registrations more
-  * Instead of the now copy&pasting data from emails, already create the user in the DB, but in a status "inactive-confirmation-needed"
+  * Instead of the now copy&pasting data from registration-emails, already create the user in the DB, but in a status "inactive-confirmation-needed"
+    * A cron-job that would auto-delete such users, e.g. after 28 days, would be needed to not let such inactive users accumulate
   * For mailinglists, optionally allow complete automation - but only, if the email address has been automatically confirmed
+* Add 2FA and/or passkeys
+* Keycloak support from https://github.com/Chreuseo/vcms-keycloak (just maybe, to keep the forks synchronized)
+* Member-map from https://github.com/Chreuseo/vcms-keycloak - or at least use it as base
+* Nginx-support from https://github.com/Chreuseo/vcms-keycloak/commit/18985e3e3e32e0ae826de8b040f39414873d82cb
 
 
 Known Bugs
 --------
 * hCaptcha cannot currently be disabled and a valid hCaptcha configuration is required for user-registration and password-reset to work
-* Menu layout looks not ok on screen-width between 992px and 1199px -> the mobile-layout with the hamburger menu should be extended to work with resolutions up to 1199px instead of 991px now
+* The menu layout looks not ok on screen-width between 992px and 1199px, as the menu-items are split to several lines -> the mobile-layout with the hamburger menu should be extended to work with resolutions up to 1199px instead of 991px now (this is a side-effect of the Bootstrap-upgrade)
+* On desktop, while scrolling down a page, the logo at the middle in the top does not fall down to the main-menu-level anymore but stays at top of the main-menu (this is a side-effect of the Bootstrap-upgrade)
+* There are too many aria-hidden=true attributes, that likely break accessibility of the page. A full review of them is necessary
 
 
 Fixed Bugs
